@@ -1,0 +1,467 @@
+<title>부동산 조간 브리핑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@600;700;900&display=swap">
+
+<style>
+/* 팔레트: 공고문 종이 + 청사진 잉크 */
+:root{
+  --paper:#F1F2EE; --card:#FFFFFF; --card-sunk:#F7F8F5;
+  --ink:#14202A; --ink-2:#4A5B68; --ink-3:#7A8892;
+  --rule:#DCDFD8; --rule-hard:#C3C8BF;
+  --accent:#1E5A87; --accent-soft:#E4EDF4; --accent-ink:#154768;
+  --good:#1A7050; --good-soft:#E1F0E9;
+  --warn:#9C650B; --warn-soft:#F6EEDC;
+  --bad:#A93A2C;  --bad-soft:#F7E6E2;
+  --shadow:0 1px 2px rgba(20,32,42,.06), 0 8px 20px -14px rgba(20,32,42,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#11161B; --card:#19212A; --card-sunk:#141B23;
+    --ink:#E8EBE6; --ink-2:#A3B0BB; --ink-3:#75838F;
+    --rule:#28323C; --rule-hard:#3A4753;
+    --accent:#74AEDC; --accent-soft:#1B2C3A; --accent-ink:#9CC8EC;
+    --good:#5FC49B; --good-soft:#152C25;
+    --warn:#D9A441; --warn-soft:#2E2617;
+    --bad:#E4796A;  --bad-soft:#31201D;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 24px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#11161B; --card:#19212A; --card-sunk:#141B23;
+  --ink:#E8EBE6; --ink-2:#A3B0BB; --ink-3:#75838F;
+  --rule:#28323C; --rule-hard:#3A4753;
+  --accent:#74AEDC; --accent-soft:#1B2C3A; --accent-ink:#9CC8EC;
+  --good:#5FC49B; --good-soft:#152C25;
+  --warn:#D9A441; --warn-soft:#2E2617;
+  --bad:#E4796A;  --bad-soft:#31201D;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 24px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans KR","Malgun Gothic",system-ui,sans-serif;
+  font-size:15px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 16px 64px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+/* 제호 */
+.masthead{padding:26px 0 14px; border-bottom:2px solid var(--ink); display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap}
+.masthead h1{
+  font-family:"Noto Serif KR",serif; font-weight:900;
+  font-size:clamp(26px,6.5vw,38px); line-height:1.1; margin:0;
+  letter-spacing:-.02em; text-wrap:balance;
+}
+.masthead .dateline{font-size:11px; color:var(--ink-3); letter-spacing:.14em; text-align:right; white-space:nowrap}
+.masthead .dateline b{display:block; font-size:15px; color:var(--ink); font-weight:600; letter-spacing:.01em; margin-top:2px}
+
+/* 탭 */
+.tabs{position:sticky; top:0; z-index:20; background:var(--paper); display:flex; gap:2px; padding:8px 0 0; border-bottom:1px solid var(--rule-hard); margin-bottom:22px}
+.tabs button{
+  appearance:none; border:1px solid transparent; border-bottom:none; background:none;
+  font:inherit; font-weight:600; font-size:14px; color:var(--ink-3);
+  padding:9px 15px 10px; cursor:pointer; border-radius:6px 6px 0 0;
+  display:flex; align-items:center; gap:7px; margin-bottom:-1px;
+}
+.tabs button:hover{color:var(--ink-2)}
+.tabs button[aria-selected="true"]{background:var(--card); border-color:var(--rule-hard); color:var(--ink); box-shadow:inset 0 3px 0 var(--accent)}
+.tabs button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.tabs .count{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3); background:var(--card-sunk); border:1px solid var(--rule); border-radius:99px; padding:1px 6px}
+.tabs button[aria-selected="true"] .count{color:var(--accent); border-color:var(--accent); background:var(--accent-soft)}
+
+[hidden]{display:none !important}
+
+/* 공통 조각 */
+.lede{
+  font-size:14.5px; color:var(--ink-2); background:var(--card-sunk);
+  border-left:3px solid var(--accent); border-radius:0 8px 8px 0;
+  padding:13px 16px; margin:0 0 22px;
+}
+.lede b{color:var(--ink); font-weight:600}
+h2.section{
+  font-family:"Noto Serif KR",serif; font-weight:700; font-size:19px;
+  margin:30px 0 4px; display:flex; align-items:baseline; gap:9px; flex-wrap:wrap;
+}
+h2.section:first-of-type{margin-top:0}
+h2.section .hint{font-family:"IBM Plex Sans KR",sans-serif; font-size:12px; font-weight:400; color:var(--ink-3)}
+.section-rule{height:1px; background:var(--rule-hard); margin:0 0 14px}
+.chip{
+  display:inline-block; font-size:11px; font-weight:600; letter-spacing:.03em;
+  padding:2px 7px; border-radius:4px; background:var(--accent-soft); color:var(--accent-ink);
+  border:1px solid var(--rule-hard);
+}
+.pill{display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:600; padding:3px 9px; border-radius:99px; white-space:nowrap}
+.pill::before{content:""; width:6px; height:6px; border-radius:99px; background:currentColor}
+.pill.good{background:var(--good-soft); color:var(--good)}
+.pill.warn{background:var(--warn-soft); color:var(--warn)}
+.pill.bad{background:var(--bad-soft); color:var(--bad)}
+.pill.unknown{background:var(--card-sunk); color:var(--ink-3)}
+.pill.live{background:var(--bad-soft); color:var(--bad)}
+.pill.soon{background:var(--accent-soft); color:var(--accent-ink)}
+
+/* 뉴스 */
+.story{background:var(--card); border:1px solid var(--rule); border-radius:10px; margin-bottom:10px; box-shadow:var(--shadow); overflow:hidden}
+.story[open]{border-color:var(--rule-hard)}
+.story > summary{
+  list-style:none; cursor:pointer; padding:15px 17px;
+  display:grid; grid-template-columns:auto 1fr auto; gap:0 13px; align-items:start;
+}
+.story > summary::-webkit-details-marker{display:none}
+.story > summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+.story .rank{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600;
+  color:var(--accent); border:1px solid var(--rule-hard);
+  border-radius:5px; width:26px; height:26px; display:grid; place-items:center; margin-top:2px;
+}
+.story h3{
+  font-family:"Noto Serif KR",serif; font-weight:700; font-size:17px; line-height:1.38;
+  margin:0; letter-spacing:-.01em; text-wrap:balance;
+}
+.story .meta{grid-column:2; font-size:12px; color:var(--ink-3); margin-top:6px; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.story .meta .sep{color:var(--rule-hard)}
+.story .caret{
+  color:var(--ink-2); transition:transform .18s ease; font-size:11px; line-height:1;
+  width:24px; height:24px; display:grid; place-items:center; margin-top:2px;
+  border:1px solid var(--rule); border-radius:99px; background:var(--card-sunk);
+}
+.story[open] .caret{transform:rotate(180deg)}
+.story .teaser{grid-column:2; font-size:13.5px; color:var(--ink-2); margin-top:7px}
+.story[open] .teaser{display:none}
+.story .body{padding:15px 17px 17px 56px; border-top:1px solid var(--rule)}
+.story .points{margin:0 0 15px; padding:13px 15px 13px 30px; background:var(--card-sunk); border-radius:8px; font-size:13.5px; color:var(--ink-2)}
+.story .points li{margin:3px 0}
+.story .points li::marker{color:var(--accent)}
+.story .body p{margin:0 0 11px; font-size:14.5px; line-height:1.75; max-width:62ch}
+.story .src{
+  display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600;
+  color:var(--accent); text-decoration:none; border:1px solid var(--rule-hard);
+  border-radius:6px; padding:6px 11px; margin-top:4px; overflow-wrap:anywhere;
+}
+.story .src:hover{background:var(--accent-soft)}
+.story .src:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+/* 청약 카드 */
+.est{background:var(--card); border:1px solid var(--rule); border-radius:10px; margin-bottom:9px; box-shadow:var(--shadow); overflow:hidden}
+.est > summary{list-style:none; cursor:pointer; padding:13px 15px}
+.est > summary::-webkit-details-marker{display:none}
+.est > summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+.est .top{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.est .name{font-weight:600; font-size:15.5px; line-height:1.35; flex:1 1 auto; min-width:0}
+.est .strip{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:8px; overflow:hidden}
+.est .cell{background:var(--card-sunk); padding:8px 4px 9px; text-align:center; min-width:0}
+.est .cell .k{display:block; font-size:10.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:2px}
+.est .cell .v{display:block; font-size:14px; font-weight:600; line-height:1.25; overflow-wrap:anywhere}
+.est .cell.hero{background:var(--card)}
+.est .cell.hero .v{font-size:17px; letter-spacing:-.01em}
+.est .cell.hero .v.good{color:var(--good)}
+.est .cell.hero .v.warn{color:var(--warn)}
+.est .cell.hero .v.bad{color:var(--bad)}
+.est .sub{font-size:11.5px; color:var(--ink-3); margin-top:8px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
+.est .detail{border-top:1px solid var(--rule); padding:13px 15px 15px; background:var(--card-sunk)}
+.est table{width:100%; border-collapse:collapse; font-size:13px; min-width:340px}
+.est th{font-size:11px; letter-spacing:.05em; color:var(--ink-3); font-weight:600; text-align:right; padding:0 0 6px; border-bottom:1px solid var(--rule-hard); white-space:nowrap}
+.est th:first-child{text-align:left}
+.est td{padding:6px 0; border-bottom:1px solid var(--rule); text-align:right; white-space:nowrap}
+.est td:first-child{text-align:left; font-weight:500}
+.est tr:last-child td{border-bottom:none}
+.est .miss{color:var(--bad); font-weight:600}
+.scroller{overflow-x:auto}
+.est .facts{font-size:12.5px; color:var(--ink-2); margin:0 0 11px; line-height:1.7}
+.est .facts b{color:var(--ink); font-weight:600}
+
+/* 정비사업 기획 */
+.doc{background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:20px 20px 22px; box-shadow:var(--shadow); margin-bottom:12px}
+.doc h3{font-family:"Noto Serif KR",serif; font-size:17px; font-weight:700; margin:0 0 3px}
+.doc .sub{font-size:12.5px; color:var(--ink-3); margin:0 0 14px}
+.doc p{font-size:14px; color:var(--ink-2); margin:0 0 10px; max-width:62ch}
+.doc ul{margin:0 0 12px; padding-left:20px; font-size:14px; color:var(--ink-2)}
+.doc li{margin:5px 0}
+.doc li b{color:var(--ink); font-weight:600}
+.doc li::marker{color:var(--accent)}
+.flow{display:flex; overflow-x:auto; padding:4px 0 12px; margin-bottom:12px}
+.flow .step{
+  flex:0 0 auto; font-size:11.5px; font-weight:600; color:var(--ink-2);
+  background:var(--card-sunk); border:1px solid var(--rule); padding:6px 13px 6px 19px;
+  clip-path:polygon(0 0, calc(100% - 9px) 0, 100% 50%, calc(100% - 9px) 100%, 0 100%, 9px 50%);
+  margin-right:-7px; white-space:nowrap;
+}
+.flow .step.key{background:var(--accent-soft); color:var(--accent-ink); border-color:var(--accent-soft)}
+.opt{border:1px solid var(--rule); border-radius:9px; padding:14px 16px; margin-bottom:9px; background:var(--card-sunk)}
+.opt.pick{border-color:var(--accent); background:var(--accent-soft)}
+.opt h4{margin:0 0 5px; font-size:14.5px; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.opt p{font-size:13.5px; margin:0 0 6px}
+.opt .tag{font-size:11px; font-weight:600; padding:2px 8px; border-radius:99px; background:var(--accent); color:var(--paper)}
+.ask{border-style:dashed; border-color:var(--rule-hard); background:transparent; box-shadow:none}
+.ask ol{margin:8px 0 0; padding-left:20px; font-size:13.5px; color:var(--ink-2)}
+.ask li{margin:6px 0}
+.ask li b{color:var(--ink); font-weight:600}
+
+footer{margin-top:34px; padding-top:14px; border-top:1px solid var(--rule); font-size:11.5px; color:var(--ink-3); line-height:1.8}
+footer a{color:var(--ink-2)}
+.empty{text-align:center; color:var(--ink-3); font-size:13.5px; padding:26px 0}
+
+@media (max-width:520px){
+  .wrap{padding:0 12px 56px}
+  .story > summary{padding:13px 14px; gap:0 10px}
+  .story .body{padding-left:14px}
+  .est .strip{grid-template-columns:repeat(2,1fr)}
+  .tabs button{padding:9px 11px 10px; font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important} }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <h1>부동산 조간 브리핑</h1>
+    <div class="dateline">DAILY BRIEF<b id="dateline">—</b></div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="브리핑 섹션">
+    <button type="button" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="true">뉴스 <span class="count" id="c-news">0</span></button>
+    <button type="button" role="tab" id="tab-apply" aria-controls="panel-apply" aria-selected="false">청약홈 <span class="count" id="c-apply">0</span></button>
+    <button type="button" role="tab" id="tab-redev" aria-controls="panel-redev" aria-selected="false">정비사업</button>
+  </nav>
+
+  <section id="panel-news" role="tabpanel" aria-labelledby="tab-news">
+    <p class="lede" id="news-lede"></p>
+    <div id="news-list"></div>
+  </section>
+
+  <section id="panel-apply" role="tabpanel" aria-labelledby="tab-apply" hidden>
+    <h2 class="section">최근 분양결과 <span class="hint">1순위 경쟁률 · 최근 마감순</span></h2>
+    <div class="section-rule"></div>
+    <div id="apply-results"></div>
+
+    <h2 class="section">청약 예정·접수중 <span class="hint">입주자모집공고가 나온 단지</span></h2>
+    <div class="section-rule"></div>
+    <div id="apply-upcoming"></div>
+  </section>
+
+  <section id="panel-redev" role="tabpanel" aria-labelledby="tab-redev" hidden>
+    <p class="lede"><b>아직 데이터를 붙이지 않은 탭입니다.</b> 어떤 방식으로 만들지 아래 기획안을 보고 정해 주세요. 방향만 정해지면 뉴스·청약홈 탭과 똑같이 매일 자동으로 채워집니다.</p>
+
+    <div class="doc">
+      <h3>무엇을 매일 알고 싶은가</h3>
+      <p class="sub">정비사업은 가격이 아니라 &lsquo;단계&rsquo;가 뉴스입니다. 아래 단계를 통과하는 순간이 곧 사업장의 가치 변곡점입니다.</p>
+      <div class="flow">
+        <span class="step">정비구역 지정</span>
+        <span class="step">추진위</span>
+        <span class="step key">조합설립인가</span>
+        <span class="step">시공사 선정</span>
+        <span class="step key">사업시행계획인가</span>
+        <span class="step">조합원 분양신청</span>
+        <span class="step key">관리처분계획인가</span>
+        <span class="step">이주·철거</span>
+        <span class="step">착공·일반분양</span>
+      </div>
+      <p>따라서 이 탭의 핵심 기능은 <b>&ldquo;어제까지 A단계였던 사업장이 오늘 B단계로 넘어갔다&rdquo;</b>를 잡아내는 것입니다. 기사 요약이 아니라 <b>상태 변화 감지</b>가 목적입니다.</p>
+    </div>
+
+    <div class="doc">
+      <h3>데이터를 어디서 가져오나</h3>
+      <p class="sub">신뢰도 순. 1·2번이 원본이고 3·4번은 속보성 보완재입니다.</p>
+      <ul>
+        <li><b>정비사업 정보몽땅</b> (cleanup.seoul.go.kr) — 서울시 공식. 구역별 추진단계, 조합 공지, 공람공고, 예산·회계까지 공개합니다. 서울 한정이지만 단계 데이터의 원본에 가장 가깝습니다.</li>
+        <li><b>지자체 고시·공고</b> — 서울시보 및 각 구청 고시공고 게시판. 정비구역 지정, 사업시행계획인가, 관리처분계획인가는 반드시 고시로 확정되므로 <b>가장 정확한 단계 통과 신호</b>입니다.</li>
+        <li><b>건설사 수주 공시·보도자료</b> — 시공사 선정 총회 결과가 여기서 제일 먼저 나옵니다.</li>
+        <li><b>뉴스</b> — 조합 내분, 공사비 증액 분쟁, 분담금 확정처럼 <b>고시에 잡히지 않는 리스크</b>를 잡는 용도입니다.</li>
+      </ul>
+      <p>1·2번은 뉴스와 달리 <b>구조화된 데이터</b>라서, 매일 스냅샷을 떠 두면 전날과 비교해 바뀐 항목만 자동으로 뽑아낼 수 있습니다.</p>
+    </div>
+
+    <div class="doc">
+      <h3>화면 구성 — 세 가지 안</h3>
+      <p class="sub">셋 중 하나를 고르시면 됩니다. 섞어도 됩니다.</p>
+
+      <div class="opt pick">
+        <h4>A안 · 관심 사업장 트래커 <span class="tag">추천</span></h4>
+        <p>관심 사업장 20~30곳을 미리 등록해두고, 각 사업장이 지금 어느 단계인지 한 줄로 보여줍니다. 그날 단계가 바뀐 곳만 맨 위로 올라옵니다.</p>
+        <p style="color:var(--ink-3)">장점 — 내가 보고 싶은 것만 본다 · 단점 — 관심 목록을 먼저 정해야 시작할 수 있다</p>
+      </div>
+
+      <div class="opt">
+        <h4>B안 · 오늘의 정비사업 이벤트</h4>
+        <p>관심 목록 없이, 어제 하루 전국에서 발생한 단계 변동·고시·시공사 선정을 시간순 타임라인으로 보여줍니다.</p>
+        <p style="color:var(--ink-3)">장점 — 준비 없이 바로 시작 · 단점 — 관심 없는 지역까지 섞여 들어온다</p>
+      </div>
+
+      <div class="opt">
+        <h4>C안 · 시공사 수주전 트래커</h4>
+        <p>시공사 선정을 앞둔 사업장의 입찰 일정, 참여사, 조건(분담금·공사비 단가)만 모아 봅니다.</p>
+        <p style="color:var(--ink-3)">장점 — 건설업 관점에서 가장 실무적 · 단점 — 커버 범위가 좁다</p>
+      </div>
+
+      <p style="margin-top:14px"><b>제안</b> — B안으로 시작해서 화면에 뜨는 사업장 중 눈에 띄는 곳을 관심 목록에 담고, 목록이 20곳쯤 쌓이면 A안으로 전환하는 방식이 가장 매끄럽습니다.</p>
+    </div>
+
+    <div class="doc ask">
+      <h3 style="margin-bottom:8px">시작하려면 이것만 알려주세요</h3>
+      <ol>
+        <li><b>지역 범위</b> — 서울 전역인지, 특정 구(강남3구·한강벨트 등)인지, 수도권까지인지</li>
+        <li><b>관심 단계</b> — 초기(구역지정·조합설립)인지, 중기(시공사 선정·사업시행인가)인지, 후기(관리처분·일반분양)인지</li>
+        <li><b>보는 목적</b> — 투자 판단인지, 수주 영업인지, 분양성 검토인지. 목적에 따라 같은 사업장도 보여줄 항목이 달라집니다</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <div id="foot-sources"></div>
+    <div>매일 아침 갱신됩니다. 수치는 참고용이며, 청약 신청 전에는 반드시 입주자모집공고문과 <a href="https://www.applyhome.co.kr" target="_blank" rel="noopener">청약홈</a>에서 확인하세요.</div>
+  </footer>
+</div>
+
+<script type="application/json" id="brief-data">__DATA__</script>
+<script>
+(function () {
+  "use strict";
+  var DATA = JSON.parse(document.getElementById("brief-data").textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  var news = DATA.news || { items: [] };
+  var apply = DATA.apply || { results: [], upcoming: [] };
+
+  /* 제호 날짜 */
+  var d = new Date((news.date || new Date().toISOString().slice(0, 10)) + "T00:00:00+09:00");
+  var days = ["일", "월", "화", "수", "목", "금", "토"];
+  $("dateline").textContent =
+    d.getFullYear() + ". " + (d.getMonth() + 1) + ". " + d.getDate() + ". (" + days[d.getDay()] + ")";
+
+  /* 탭 */
+  var tabs = [["tab-news", "panel-news"], ["tab-apply", "panel-apply"], ["tab-redev", "panel-redev"]];
+  var KEY = "estate-watch.tab";
+  function select(id) {
+    tabs.forEach(function (pair) {
+      var on = pair[0] === id;
+      $(pair[0]).setAttribute("aria-selected", String(on));
+      $(pair[1]).hidden = !on;
+    });
+    try { localStorage.setItem(KEY, id); } catch (e) { /* 저장 못 해도 무방 */ }
+  }
+  tabs.forEach(function (pair) {
+    $(pair[0]).addEventListener("click", function () { select(pair[0]); });
+  });
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved && tabs.some(function (p) { return p[0] === saved; })) select(saved);
+  } catch (e) { /* 비공개 창 등 */ }
+
+  /* 뉴스 */
+  $("news-lede").textContent = news.editorNote || "";
+  $("c-news").textContent = (news.items || []).length;
+  $("news-list").innerHTML = (news.items || []).map(function (n) {
+    return '<details class="story">' +
+      '<summary>' +
+        '<span class="rank">' + esc(n.rank) + '</span>' +
+        '<h3>' + esc(n.title) + '</h3>' +
+        '<span class="caret" aria-hidden="true">&#9662;</span>' +
+        '<span class="meta">' +
+          '<span class="chip">' + esc(n.category) + '</span>' +
+          '<span>' + esc(n.outlet) + '</span>' +
+          '<span class="sep">·</span>' +
+          '<span class="mono">' + esc(n.publishedAt) + '</span>' +
+          (n.byline ? '<span class="sep">·</span><span>' + esc(n.byline) + '</span>' : "") +
+        '</span>' +
+        '<span class="teaser">' + esc(n.summary) + '</span>' +
+      '</summary>' +
+      '<div class="body">' +
+        ((n.points || []).length
+          ? '<ul class="points">' + n.points.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join("") + '</ul>'
+          : "") +
+        (n.body || []).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join("") +
+        '<a class="src" href="' + esc(n.url) + '" target="_blank" rel="noopener">기사 원문 &#8599; ' + esc(n.url) + '</a>' +
+      '</div>' +
+    '</details>';
+  }).join("") || '<p class="empty">오늘 수집된 뉴스가 없습니다.</p>';
+
+  /* 청약 */
+  function rate(v) { return v == null ? "미달" : v + '<span style="font-size:.7em">:1</span>'; }
+  function rateClass(v) { return v == null ? "bad" : v >= 5 ? "good" : v >= 1 ? "warn" : "bad"; }
+  function num(v) { return Number(v || 0).toLocaleString("ko-KR"); }
+
+  function typeRows(rows, withRate) {
+    return '<div class="scroller"><table>' +
+      '<thead><tr><th>주택형</th><th>세대수</th><th>분양가(최고)</th><th>평당가</th>' +
+      (withRate ? "<th>1순위</th>" : "") + '</tr></thead><tbody>' +
+      rows.map(function (t) {
+        return '<tr>' +
+          '<td>' + esc(t.type) + '</td>' +
+          '<td class="mono">' + esc(t.units) + '</td>' +
+          '<td class="mono">' + esc(t.price) + '</td>' +
+          '<td class="mono">' + esc(t.pyeongPrice) + '</td>' +
+          (withRate
+            ? '<td class="mono' + (t.rate == null ? " miss" : "") + '">' + (t.rate == null ? "미달" : t.rate + ":1") + '</td>'
+            : "") +
+        '</tr>';
+      }).join("") + '</tbody></table></div>';
+  }
+
+  function detail(r, withRate) {
+    return '<div class="detail">' +
+      '<p class="facts">' + esc(r.address) + '<br>시공 <b>' + esc(r.builder) + '</b></p>' +
+      typeRows(r.byType || [], withRate) +
+      '<p style="margin:11px 0 0"><a class="src" href="' + esc(r.detailUrl) +
+        '" target="_blank" rel="noopener">공고 상세 &#8599;</a></p>' +
+    '</div>';
+  }
+
+  $("apply-results").innerHTML = (apply.results || []).map(function (r) {
+    return '<details class="est">' +
+      '<summary>' +
+        '<div class="top">' +
+          '<span class="chip">' + esc(r.region) + '</span>' +
+          '<span class="name">' + esc(r.name) + '</span>' +
+          '<span class="pill ' + esc(r.tone) + '">' + esc(r.verdict) + '</span>' +
+        '</div>' +
+        '<div class="strip">' +
+          '<div class="cell"><span class="k">주요평형</span><span class="v mono">' + esc(r.mainType) + '</span></div>' +
+          '<div class="cell"><span class="k">가격</span><span class="v mono">' + esc(r.mainPrice) + '</span></div>' +
+          '<div class="cell hero"><span class="k">평균 경쟁률</span><span class="v mono ' + rateClass(r.avgRate) + '">' + rate(r.avgRate) + '</span></div>' +
+          '<div class="cell"><span class="k">최고 경쟁률</span><span class="v mono">' + rate(r.maxRate) + '</span></div>' +
+        '</div>' +
+        '<div class="sub">' +
+          '<span>' + esc(r.receipt) + ' 접수 · 총 ' + num(r.totalUnits) + '세대 (일반 ' + num(r.generalUnits) + ')</span>' +
+          '<span class="mono">1순위 접수 ' + num(r.applicants) + '건</span>' +
+        '</div>' +
+      '</summary>' + detail(r, true) +
+    '</details>';
+  }).join("") || '<p class="empty">최근 경쟁률이 공개된 단지가 없습니다.</p>';
+
+  $("apply-upcoming").innerHTML = (apply.upcoming || []).map(function (r) {
+    return '<details class="est">' +
+      '<summary>' +
+        '<div class="top">' +
+          '<span class="chip">' + esc(r.region) + '</span>' +
+          '<span class="name">' + esc(r.name) + '</span>' +
+          '<span class="pill ' + (r.status === "접수중" ? "live" : "soon") + '">' + esc(r.status) + '</span>' +
+        '</div>' +
+        '<div class="strip">' +
+          '<div class="cell"><span class="k">주요평형</span><span class="v mono">' + esc(r.mainType) + '</span></div>' +
+          '<div class="cell"><span class="k">가격</span><span class="v mono">' + esc(r.mainPrice) + '</span></div>' +
+          '<div class="cell hero"><span class="k">세대수</span><span class="v mono">' + num(r.totalUnits) + '</span></div>' +
+          '<div class="cell"><span class="k">접수</span><span class="v mono" style="font-size:12.5px">' + esc(r.receipt) + '</span></div>' +
+        '</div>' +
+        '<div class="sub">' +
+          '<span>전체 분양가 ' + esc(r.priceRange) + '</span>' +
+          '<span>입주 ' + esc(r.movein) + '</span>' +
+        '</div>' +
+      '</summary>' + detail(r, false) +
+    '</details>';
+  }).join("") || '<p class="empty">현재 공고가 나온 예정 단지가 없습니다.</p>';
+
+  $("c-apply").textContent = (apply.results || []).length + (apply.upcoming || []).length;
+
+  /* 푸터 */
+  function stamp(iso) { return iso ? iso.slice(0, 16).replace("T", " ") : "—"; }
+  $("foot-sources").innerHTML =
+    "뉴스 " + esc(stamp(news.updatedAt)) + " 기준 · 청약 데이터 " + esc(stamp(apply.updatedAt)) + " 기준<br>" +
+    "청약 출처: " + esc((apply.source && apply.source.name) || "한국부동산원 청약홈");
+})();
+</script>

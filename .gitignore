@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+data/news_candidates.json
+
+# Android 빌드 산출물
+android-app/.gradle/
+android-app/.kotlin/
+android-app/build/
+android-app/app/build/
+android-app/local.properties
+*.iml
+.idea/

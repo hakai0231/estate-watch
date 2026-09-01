@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="paper">#11161B</color>
+    <color name="surface">#19212A</color>
+    <color name="surface_sunk">#141B23</color>
+    <color name="ink">#E8EBE6</color>
+    <color name="muted">#A3B0BB</color>
+    <color name="faint">#75838F</color>
+    <color name="line">#28323C</color>
+    <color name="line_hard">#3A4753</color>
+    <color name="accent">#74AEDC</color>
+    <color name="accent_soft">#1B2C3A</color>
+    <color name="good">#5FC49B</color>
+    <color name="good_soft">#152C25</color>
+    <color name="warn">#D9A441</color>
+    <color name="warn_soft">#2E2617</color>
+    <color name="bad">#E4796A</color>
+    <color name="bad_soft">#31201D</color>
+</resources>

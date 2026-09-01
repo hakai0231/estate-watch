@@ -1,0 +1,1220 @@
+{
+  "updatedAt": "2026-09-01T16:34:40+09:00",
+  "source": {
+    "name": "한국부동산원 청약홈 (공공데이터포털)",
+    "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancListView.do",
+    "via": "cheongyak.today"
+  },
+  "results": [
+    {
+      "name": "쌍용 더 플래티넘 서대문",
+      "region": "서울",
+      "address": "서울특별시 서대문구 홍은동 355번지 일원",
+      "builder": "쌍용건설(주)",
+      "supplyType": "일반분양",
+      "receipt": "8월 24일(월) ~ 8월 27일(목)",
+      "endDate": "2026-08-27",
+      "mainType": "84㎡A",
+      "mainTypeUnits": 53,
+      "mainPrice": "13억 7,330만",
+      "mainPricePyeong": "4,117만",
+      "mainRate": 25.39,
+      "totalUnits": 62,
+      "generalUnits": 28,
+      "applicants": 1112,
+      "avgRate": 39.71,
+      "maxRate": 240.5,
+      "verdict": "1순위 전 타입 마감",
+      "tone": "good",
+      "byType": [
+        {
+          "type": "59㎡A",
+          "units": 3,
+          "generalUnits": 2,
+          "price": "10억 8,650만",
+          "pyeongPrice": "4,576만",
+          "rate": 240.5
+        },
+        {
+          "type": "84㎡A",
+          "units": 53,
+          "generalUnits": 23,
+          "price": "13억 7,330만",
+          "pyeongPrice": "4,117만",
+          "rate": 25.39
+        },
+        {
+          "type": "84㎡B",
+          "units": 6,
+          "generalUnits": 3,
+          "price": "13억 5,340만",
+          "pyeongPrice": "4,065만",
+          "rate": 15.67
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000372"
+    },
+    {
+      "name": "의왕역 한신더휴",
+      "region": "경기",
+      "address": "경기도 의왕시 삼동 244-1번지 일원",
+      "builder": "한신공영(주)",
+      "supplyType": "일반분양",
+      "receipt": "8월 24일(월) ~ 8월 27일(목)",
+      "endDate": "2026-08-27",
+      "mainType": "49㎡",
+      "mainTypeUnits": 64,
+      "mainPrice": "5억 6,300만",
+      "mainPricePyeong": "2,648만",
+      "mainRate": 15.89,
+      "totalUnits": 108,
+      "generalUnits": 49,
+      "applicants": 421,
+      "avgRate": 4.65,
+      "maxRate": 15.89,
+      "verdict": "1순위 전 타입 마감",
+      "tone": "good",
+      "byType": [
+        {
+          "type": "49㎡",
+          "units": 64,
+          "generalUnits": 25,
+          "price": "5억 6,300만",
+          "pyeongPrice": "2,648만",
+          "rate": 15.89
+        },
+        {
+          "type": "59㎡B",
+          "units": 12,
+          "generalUnits": 6,
+          "price": "7억 2,500만",
+          "pyeongPrice": "2,851만",
+          "rate": 1.5
+        },
+        {
+          "type": "74㎡",
+          "units": 14,
+          "generalUnits": 9,
+          "price": "8억 5,700만",
+          "pyeongPrice": "2,718만",
+          "rate": 6.67
+        },
+        {
+          "type": "84㎡B",
+          "units": 18,
+          "generalUnits": 9,
+          "price": "9억 4,000만",
+          "pyeongPrice": "2,636만",
+          "rate": 4.0
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000377"
+    },
+    {
+      "name": "포레나힐스테이트 진주",
+      "region": "경남",
+      "address": "경상남도 진주시 이현동 10-1번지 외 13필지",
+      "builder": "주식회사 한화, 현대건설 주식회사",
+      "supplyType": "일반분양",
+      "receipt": "8월 24일(월) ~ 8월 26일(수)",
+      "endDate": "2026-08-26",
+      "mainType": "59㎡A",
+      "mainTypeUnits": 136,
+      "mainPrice": "4억 2,000만",
+      "mainPricePyeong": "1,586만",
+      "mainRate": 11.68,
+      "totalUnits": 398,
+      "generalUnits": 182,
+      "applicants": 3849,
+      "avgRate": 18.14,
+      "maxRate": 53.24,
+      "verdict": "1순위 전 타입 마감",
+      "tone": "good",
+      "byType": [
+        {
+          "type": "59㎡A",
+          "units": 136,
+          "generalUnits": 63,
+          "price": "4억 2,000만",
+          "pyeongPrice": "1,586만",
+          "rate": 11.68
+        },
+        {
+          "type": "59㎡B",
+          "units": 19,
+          "generalUnits": 8,
+          "price": "4억 1,300만",
+          "pyeongPrice": "1,541만",
+          "rate": 8.0
+        },
+        {
+          "type": "72㎡A",
+          "units": 68,
+          "generalUnits": 30,
+          "price": "4억 9,000만",
+          "pyeongPrice": "1,601만",
+          "rate": 21.63
+        },
+        {
+          "type": "72㎡B",
+          "units": 78,
+          "generalUnits": 34,
+          "price": "4억 8,600만",
+          "pyeongPrice": "1,570만",
+          "rate": 11.06
+        },
+        {
+          "type": "84㎡A",
+          "units": 38,
+          "generalUnits": 21,
+          "price": "5억 7,700만",
+          "pyeongPrice": "1,710만",
+          "rate": 53.24
+        },
+        {
+          "type": "84㎡B",
+          "units": 59,
+          "generalUnits": 26,
+          "price": "5억 7,100만",
+          "pyeongPrice": "1,681만",
+          "rate": 13.81
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000383"
+    },
+    {
+      "name": "상동역 롯데캐슬 시그니처",
+      "region": "경기",
+      "address": "경기도 부천시 원미구 상동 540-1번지",
+      "builder": "롯데건설(주)",
+      "supplyType": "일반분양",
+      "receipt": "8월 24일(월) ~ 8월 26일(수)",
+      "endDate": "2026-08-26",
+      "mainType": "84㎡F",
+      "mainTypeUnits": 442,
+      "mainPrice": "15억 9,900만",
+      "mainPricePyeong": "4,524만",
+      "mainRate": 1.8,
+      "totalUnits": 1859,
+      "generalUnits": 1044,
+      "applicants": 3028,
+      "avgRate": 1.32,
+      "maxRate": 7.4,
+      "verdict": "일부 미달 (6/12타입)",
+      "tone": "warn",
+      "byType": [
+        {
+          "type": "84㎡A",
+          "units": 224,
+          "generalUnits": 103,
+          "price": "16억 3,000만",
+          "pyeongPrice": "4,589만",
+          "rate": 1.41
+        },
+        {
+          "type": "84㎡B",
+          "units": 84,
+          "generalUnits": 39,
+          "price": "14억 9,900만",
+          "pyeongPrice": "4,166만",
+          "rate": 1.29
+        },
+        {
+          "type": "84㎡C",
+          "units": 353,
+          "generalUnits": 159,
+          "price": "15억 9,800만",
+          "pyeongPrice": "4,555만",
+          "rate": null
+        },
+        {
+          "type": "84㎡D",
+          "units": 89,
+          "generalUnits": 40,
+          "price": "15억 9,900만",
+          "pyeongPrice": "4,562만",
+          "rate": null
+        },
+        {
+          "type": "84㎡E",
+          "units": 178,
+          "generalUnits": 80,
+          "price": "16억 3,800만",
+          "pyeongPrice": "4,649만",
+          "rate": 2.86
+        },
+        {
+          "type": "84㎡F",
+          "units": 442,
+          "generalUnits": 195,
+          "price": "15억 9,900만",
+          "pyeongPrice": "4,524만",
+          "rate": 1.8
+        },
+        {
+          "type": "113㎡A",
+          "units": 224,
+          "generalUnits": 196,
+          "price": "22억 4,200만",
+          "pyeongPrice": "4,786만",
+          "rate": null
+        },
+        {
+          "type": "113㎡B",
+          "units": 84,
+          "generalUnits": 74,
+          "price": "22억 4,900만",
+          "pyeongPrice": "4,773만",
+          "rate": null
+        },
+        {
+          "type": "121㎡",
+          "units": 178,
+          "generalUnits": 155,
+          "price": "23억 4,900만",
+          "pyeongPrice": "4,650만",
+          "rate": null
+        },
+        {
+          "type": "153㎡P",
+          "units": 1,
+          "generalUnits": 1,
+          "price": "47억 5,000만",
+          "pyeongPrice": "7,500만",
+          "rate": 1.0
+        },
+        {
+          "type": "187㎡P",
+          "units": 1,
+          "generalUnits": 1,
+          "price": "57억 2,700만",
+          "pyeongPrice": "7,501만",
+          "rate": null
+        },
+        {
+          "type": "192㎡P",
+          "units": 1,
+          "generalUnits": 1,
+          "price": "60억 3,800만",
+          "pyeongPrice": "7,501만",
+          "rate": 3.0
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000354"
+    },
+    {
+      "name": "제일풍경채 첨단3지구(A6BL)",
+      "region": "광주",
+      "address": "광주연구개발특구 첨단3지구 A6블록(전남광주통합특별시 북구 월출동)",
+      "builder": "제일건설 주식회사",
+      "supplyType": "일반분양",
+      "receipt": "8월 24일(월) ~ 8월 26일(수)",
+      "endDate": "2026-08-26",
+      "mainType": "84㎡A",
+      "mainTypeUnits": 282,
+      "mainPrice": "5억 1,800만",
+      "mainPricePyeong": "1,542만",
+      "mainRate": 1.2,
+      "totalUnits": 638,
+      "generalUnits": 398,
+      "applicants": 576,
+      "avgRate": 0.75,
+      "maxRate": 2.17,
+      "verdict": "일부 미달 (2/4타입)",
+      "tone": "warn",
+      "byType": [
+        {
+          "type": "84㎡A",
+          "units": 282,
+          "generalUnits": 100,
+          "price": "5억 1,800만",
+          "pyeongPrice": "1,542만",
+          "rate": 1.2
+        },
+        {
+          "type": "84㎡B",
+          "units": 35,
+          "generalUnits": 16,
+          "price": "5억 1,460만",
+          "pyeongPrice": "1,526만",
+          "rate": 2.17
+        },
+        {
+          "type": "115㎡A",
+          "units": 127,
+          "generalUnits": 112,
+          "price": "6억 9,810만",
+          "pyeongPrice": "1,530만",
+          "rate": null
+        },
+        {
+          "type": "129㎡A",
+          "units": 194,
+          "generalUnits": 170,
+          "price": "7억 9,600만",
+          "pyeongPrice": "1,559만",
+          "rate": null
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000342"
+    },
+    {
+      "name": "오남역 서희스타힐스 여의재 1단지",
+      "region": "경기",
+      "address": "경기도 남양주시 오남읍 양지리 101번지 일원",
+      "builder": "(주)서희건설",
+      "supplyType": "일반분양",
+      "receipt": "8월 24일(월) ~ 8월 26일(수)",
+      "endDate": "2026-08-26",
+      "mainType": "59㎡A",
+      "mainTypeUnits": 83,
+      "mainPrice": "5억 5,400만",
+      "mainPricePyeong": "2,181만",
+      "mainRate": null,
+      "totalUnits": 180,
+      "generalUnits": 91,
+      "applicants": 87,
+      "avgRate": 0.09,
+      "maxRate": 1.14,
+      "verdict": "일부 미달 (3/4타입)",
+      "tone": "warn",
+      "byType": [
+        {
+          "type": "59㎡A",
+          "units": 83,
+          "generalUnits": 40,
+          "price": "5억 5,400만",
+          "pyeongPrice": "2,181만",
+          "rate": null
+        },
+        {
+          "type": "59㎡B",
+          "units": 63,
+          "generalUnits": 31,
+          "price": "5억 4,800만",
+          "pyeongPrice": "2,132만",
+          "rate": null
+        },
+        {
+          "type": "75㎡",
+          "units": 19,
+          "generalUnits": 11,
+          "price": "6억 5,900만",
+          "pyeongPrice": "2,078만",
+          "rate": null
+        },
+        {
+          "type": "84㎡",
+          "units": 15,
+          "generalUnits": 9,
+          "price": "7억 1,900만",
+          "pyeongPrice": "2,016만",
+          "rate": 1.14
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000365"
+    },
+    {
+      "name": "두산위브더제니스 부천",
+      "region": "경기",
+      "address": "경기도 부천시 소사구 소사본동 88-39번지 일대",
+      "builder": "두산건설 주식회사, 쌍용건설(주)",
+      "supplyType": "일반분양",
+      "receipt": "8월 19일(수) ~ 8월 21일(금)",
+      "endDate": "2026-08-21",
+      "mainType": "59㎡A",
+      "mainTypeUnits": 321,
+      "mainPrice": "8억 7,500만",
+      "mainPricePyeong": "3,306만",
+      "mainRate": 2.04,
+      "totalUnits": 1158,
+      "generalUnits": 525,
+      "applicants": 667,
+      "avgRate": 0.32,
+      "maxRate": 2.04,
+      "verdict": "일부 미달 (5/6타입)",
+      "tone": "warn",
+      "byType": [
+        {
+          "type": "59㎡A",
+          "units": 321,
+          "generalUnits": 145,
+          "price": "8억 7,500만",
+          "pyeongPrice": "3,306만",
+          "rate": 2.04
+        },
+        {
+          "type": "59㎡B",
+          "units": 170,
+          "generalUnits": 77,
+          "price": "8억 6,400만",
+          "pyeongPrice": "3,311만",
+          "rate": null
+        },
+        {
+          "type": "74㎡A",
+          "units": 156,
+          "generalUnits": 72,
+          "price": "10억 5,500만",
+          "pyeongPrice": "3,179만",
+          "rate": null
+        },
+        {
+          "type": "74㎡B",
+          "units": 160,
+          "generalUnits": 72,
+          "price": "10억 1,500만",
+          "pyeongPrice": "3,088만",
+          "rate": null
+        },
+        {
+          "type": "84㎡A",
+          "units": 105,
+          "generalUnits": 49,
+          "price": "11억 8,200만",
+          "pyeongPrice": "3,158만",
+          "rate": null
+        },
+        {
+          "type": "84㎡B",
+          "units": 246,
+          "generalUnits": 110,
+          "price": "11억 2,300만",
+          "pyeongPrice": "3,043만",
+          "rate": null
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000382"
+    },
+    {
+      "name": "더샵 신길센트럴시티(조합원 취소분)",
+      "region": "서울",
+      "address": "서울특별시 영등포구 신길동 413-8번지 일원",
+      "builder": "(주) 포스코이앤씨",
+      "supplyType": "일반분양",
+      "receipt": "8월 18일(화) ~ 8월 21일(금)",
+      "endDate": "2026-08-21",
+      "mainType": "59㎡B",
+      "mainTypeUnits": 17,
+      "mainPrice": "14억 4,000만",
+      "mainPricePyeong": "5,595만",
+      "mainRate": 564.67,
+      "totalUnits": 67,
+      "generalUnits": 31,
+      "applicants": 8759,
+      "avgRate": 282.55,
+      "maxRate": 564.67,
+      "verdict": "1순위 전 타입 마감",
+      "tone": "good",
+      "byType": [
+        {
+          "type": "52㎡A",
+          "units": 1,
+          "generalUnits": 1,
+          "price": "12억 4,000만",
+          "pyeongPrice": "5,546만",
+          "rate": 171.0
+        },
+        {
+          "type": "51㎡B",
+          "units": 10,
+          "generalUnits": 5,
+          "price": "12억 5,000만",
+          "pyeongPrice": "5,572만",
+          "rate": 382.8
+        },
+        {
+          "type": "51㎡C",
+          "units": 2,
+          "generalUnits": 1,
+          "price": "12억 2,000만",
+          "pyeongPrice": "5,494만",
+          "rate": 99.0
+        },
+        {
+          "type": "51㎡D",
+          "units": 6,
+          "generalUnits": 2,
+          "price": "12억 4,000만",
+          "pyeongPrice": "5,521만",
+          "rate": 199.0
+        },
+        {
+          "type": "52㎡E",
+          "units": 1,
+          "generalUnits": 1,
+          "price": "11억 8,000만",
+          "pyeongPrice": "5,280만",
+          "rate": 77.0
+        },
+        {
+          "type": "60㎡A",
+          "units": 4,
+          "generalUnits": 2,
+          "price": "14억 5,000만",
+          "pyeongPrice": "5,663만",
+          "rate": 413.5
+        },
+        {
+          "type": "59㎡B",
+          "units": 17,
+          "generalUnits": 6,
+          "price": "14억 4,000만",
+          "pyeongPrice": "5,595만",
+          "rate": 564.67
+        },
+        {
+          "type": "59㎡C",
+          "units": 3,
+          "generalUnits": 1,
+          "price": "14억 4,000만",
+          "pyeongPrice": "5,617만",
+          "rate": 241.0
+        },
+        {
+          "type": "60㎡D",
+          "units": 2,
+          "generalUnits": 1,
+          "price": "14억 5,000만",
+          "pyeongPrice": "5,609만",
+          "rate": 95.0
+        },
+        {
+          "type": "74㎡A",
+          "units": 4,
+          "generalUnits": 2,
+          "price": "17억",
+          "pyeongPrice": "5,268만",
+          "rate": 71.0
+        },
+        {
+          "type": "74㎡B",
+          "units": 2,
+          "generalUnits": 1,
+          "price": "16억 8,000만",
+          "pyeongPrice": "5,268만",
+          "rate": 27.0
+        },
+        {
+          "type": "74㎡C",
+          "units": 4,
+          "generalUnits": 2,
+          "price": "16억 5,000만",
+          "pyeongPrice": "5,198만",
+          "rate": 70.5
+        },
+        {
+          "type": "85㎡A",
+          "units": 11,
+          "generalUnits": 6,
+          "price": "18억 4,000만",
+          "pyeongPrice": "5,112만",
+          "rate": 186.17
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000374"
+    },
+    {
+      "name": "용인반도체클러스터 동일하이빌 파크밸리(D1-1블록)",
+      "region": "경기",
+      "address": "경기도 용인시 처인구 원삼면 용인 반도체 클러스터 일반산업단지 D1-1BL",
+      "builder": "(주)동일토건",
+      "supplyType": "일반분양",
+      "receipt": "8월 18일(화) ~ 8월 21일(금)",
+      "endDate": "2026-08-21",
+      "mainType": "59㎡A",
+      "mainTypeUnits": 175,
+      "mainPrice": "4억 1,600만",
+      "mainPricePyeong": "1,698만",
+      "mainRate": 1.77,
+      "totalUnits": 589,
+      "generalUnits": 129,
+      "applicants": 762,
+      "avgRate": 1.37,
+      "maxRate": 4.67,
+      "verdict": "일부 미달 (3/6타입)",
+      "tone": "warn",
+      "byType": [
+        {
+          "type": "59㎡A",
+          "units": 175,
+          "generalUnits": 40,
+          "price": "4억 1,600만",
+          "pyeongPrice": "1,698만",
+          "rate": 1.77
+        },
+        {
+          "type": "59㎡B",
+          "units": 112,
+          "generalUnits": 24,
+          "price": "4억 800만",
+          "pyeongPrice": "1,673만",
+          "rate": null
+        },
+        {
+          "type": "59㎡C",
+          "units": 38,
+          "generalUnits": 7,
+          "price": "3억 9,700만",
+          "pyeongPrice": "1,627만",
+          "rate": 1.67
+        },
+        {
+          "type": "71㎡A",
+          "units": 38,
+          "generalUnits": 7,
+          "price": "4억 7,800만",
+          "pyeongPrice": "1,650만",
+          "rate": null
+        },
+        {
+          "type": "71㎡B",
+          "units": 78,
+          "generalUnits": 17,
+          "price": "4억 7,600만",
+          "pyeongPrice": "1,641만",
+          "rate": null
+        },
+        {
+          "type": "84㎡A",
+          "units": 148,
+          "generalUnits": 34,
+          "price": "5억 3,400만",
+          "pyeongPrice": "1,564만",
+          "rate": 1.95
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000371"
+    },
+    {
+      "name": "써밋 클라비온",
+      "region": "서울",
+      "address": "서울특별시 영등포구 신길동 3590번지 일원",
+      "builder": "(주)대우건설",
+      "supplyType": "일반분양",
+      "receipt": "8월 18일(화) ~ 8월 21일(금)",
+      "endDate": "2026-08-21",
+      "mainType": "59㎡D",
+      "mainTypeUnits": 65,
+      "mainPrice": "18억 5,080만",
+      "mainPricePyeong": "7,575만",
+      "mainRate": 57.33,
+      "totalUnits": 176,
+      "generalUnits": 83,
+      "applicants": 5543,
+      "avgRate": 66.78,
+      "maxRate": 183.0,
+      "verdict": "1순위 전 타입 마감",
+      "tone": "good",
+      "byType": [
+        {
+          "type": "44㎡A",
+          "units": 11,
+          "generalUnits": 7,
+          "price": "13억 2,510만",
+          "pyeongPrice": "6,412만",
+          "rate": 106.86
+        },
+        {
+          "type": "44㎡B",
+          "units": 7,
+          "generalUnits": 4,
+          "price": "13억 370만",
+          "pyeongPrice": "6,348만",
+          "rate": 70.5
+        },
+        {
+          "type": "49㎡",
+          "units": 8,
+          "generalUnits": 5,
+          "price": "14억 6,600만",
+          "pyeongPrice": "7,203만",
+          "rate": 183.0
+        },
+        {
+          "type": "59㎡A",
+          "units": 12,
+          "generalUnits": 5,
+          "price": "17억 2,900만",
+          "pyeongPrice": "7,067만",
+          "rate": 74.0
+        },
+        {
+          "type": "59㎡B",
+          "units": 32,
+          "generalUnits": 12,
+          "price": "18억 3,790만",
+          "pyeongPrice": "7,507만",
+          "rate": 39.92
+        },
+        {
+          "type": "59㎡C",
+          "units": 41,
+          "generalUnits": 20,
+          "price": "18억 6,630만",
+          "pyeongPrice": "7,590만",
+          "rate": 51.45
+        },
+        {
+          "type": "59㎡D",
+          "units": 65,
+          "generalUnits": 30,
+          "price": "18억 5,080만",
+          "pyeongPrice": "7,575만",
+          "rate": 57.33
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000364"
+    }
+  ],
+  "upcoming": [
+    {
+      "name": "검암역 푸르지오 프라베뉴 (B-1BL) 공공분양주택",
+      "region": "인천",
+      "address": "인천광역시 서해구 인천검암역세권 공공주택지구 내 B-1BL",
+      "builder": ",(주)대우건설,동부건설(주),(주)비에스한양,경화건설(주),브니엘네이처(주)입니다. 대표 주택형 084.9079A(공급면적 112.0261㎡)의 분양가는 최고 6억 3,910만원, 3.3㎡당 약 1,886만원 수준입니다. 분양가상한제가 적용되는 단지입니다. 청약 접수는 2026-08-31부터 2026-09-02까지 진행되며, 당첨자 발표는 2026-09-08입니다. 입주 예정 시기는 2029년 7월입니다. 시공사 ㈜대우건설, 동부건설㈜, ㈜비에스한양, 경화건설㈜, 브니엘네이처㈜",
+      "supplyType": "일반분양",
+      "status": "접수중",
+      "receipt": "8월 31일(월) ~ 9월 2일(수)",
+      "startDate": "2026-08-31",
+      "mainType": "84㎡A",
+      "mainTypeUnits": 216,
+      "mainPrice": "6억 3,910만",
+      "mainPricePyeong": "1,886만",
+      "totalUnits": 441,
+      "priceRange": "4억 6,250만 ~ 6억 3,910만원",
+      "movein": "2029년 7월",
+      "byType": [
+        {
+          "type": "60㎡A",
+          "units": 25,
+          "generalUnits": 2,
+          "price": "4억 8,630만",
+          "pyeongPrice": "1,977만"
+        },
+        {
+          "type": "60㎡B",
+          "units": 50,
+          "generalUnits": 11,
+          "price": "4억 7,930만",
+          "pyeongPrice": "1,941만"
+        },
+        {
+          "type": "60㎡C",
+          "units": 75,
+          "generalUnits": 16,
+          "price": "4억 6,250만",
+          "pyeongPrice": "1,868만"
+        },
+        {
+          "type": "84㎡A",
+          "units": 216,
+          "generalUnits": 63,
+          "price": "6억 3,910만",
+          "pyeongPrice": "1,886만"
+        },
+        {
+          "type": "84㎡B",
+          "units": 50,
+          "generalUnits": 10,
+          "price": "6억 2,940만",
+          "pyeongPrice": "1,858만"
+        },
+        {
+          "type": "84㎡C",
+          "units": 25,
+          "generalUnits": 3,
+          "price": "6억 2,340만",
+          "pyeongPrice": "1,831만"
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000404"
+    },
+    {
+      "name": "시티오씨엘 9단지 오션파크뷰",
+      "region": "인천",
+      "address": "인천광역시 미추홀구 학익동 인천 용현·학익 1블록 도시개발구역 공동3BL",
+      "builder": "아이파크현대산업개발(주),현대건설(주),(주)포스코이앤씨",
+      "supplyType": "일반분양",
+      "status": "접수중",
+      "receipt": "8월 31일(월) ~ 9월 2일(수)",
+      "startDate": "2026-08-31",
+      "mainType": "84㎡A",
+      "mainTypeUnits": 984,
+      "mainPrice": "7억 1,290만",
+      "mainPricePyeong": "2,021만",
+      "totalUnits": 1949,
+      "priceRange": "4억 8,560만 ~ 17억원",
+      "movein": "2030년 4월",
+      "byType": [
+        {
+          "type": "59㎡",
+          "units": 189,
+          "generalUnits": 88,
+          "price": "4억 8,560만",
+          "pyeongPrice": "1,898만"
+        },
+        {
+          "type": "75㎡",
+          "units": 137,
+          "generalUnits": 64,
+          "price": "6억 90만",
+          "pyeongPrice": "1,897만"
+        },
+        {
+          "type": "84㎡A",
+          "units": 984,
+          "generalUnits": 444,
+          "price": "7억 1,290만",
+          "pyeongPrice": "2,021만"
+        },
+        {
+          "type": "84㎡B",
+          "units": 366,
+          "generalUnits": 168,
+          "price": "6억 7,590만",
+          "pyeongPrice": "1,911만"
+        },
+        {
+          "type": "95㎡",
+          "units": 80,
+          "generalUnits": 70,
+          "price": "7억 7,340만",
+          "pyeongPrice": "1,963만"
+        },
+        {
+          "type": "101㎡A",
+          "units": 45,
+          "generalUnits": 40,
+          "price": "8억 1,790만",
+          "pyeongPrice": "1,951만"
+        },
+        {
+          "type": "101㎡B",
+          "units": 97,
+          "generalUnits": 86,
+          "price": "8억 1,850만",
+          "pyeongPrice": "1,951만"
+        },
+        {
+          "type": "110㎡",
+          "units": 49,
+          "generalUnits": 44,
+          "price": "8억 8,980만",
+          "pyeongPrice": "1,949만"
+        },
+        {
+          "type": "133㎡P",
+          "units": 1,
+          "generalUnits": 1,
+          "price": "16억 6,900만",
+          "pyeongPrice": "2,949만"
+        },
+        {
+          "type": "136㎡P",
+          "units": 1,
+          "generalUnits": 1,
+          "price": "17억",
+          "pyeongPrice": "2,948만"
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000388"
+    },
+    {
+      "name": "성남복정2 A1블록 신혼희망타운(공공분양)(본청약)",
+      "region": "경기",
+      "address": "경기도 성남시 수정구 신흥동 81-8",
+      "builder": "(주)케이알산업, 동성건설(주)",
+      "supplyType": "일반분양",
+      "status": "접수중",
+      "receipt": "8월 31일(월) ~ 9월 8일(화)",
+      "startDate": "2026-08-31",
+      "mainType": "55㎡A",
+      "mainTypeUnits": 145,
+      "mainPrice": "7억 9,831만",
+      "mainPricePyeong": "3,155만",
+      "totalUnits": 594,
+      "priceRange": "7억 9,831만 ~ 8억 1,214만원",
+      "movein": "2030년 5월",
+      "byType": [
+        {
+          "type": "55㎡A",
+          "units": 145,
+          "generalUnits": 0,
+          "price": "7억 9,831만",
+          "pyeongPrice": "3,155만"
+        },
+        {
+          "type": "55㎡B",
+          "units": 12,
+          "generalUnits": 0,
+          "price": "7억 9,831만",
+          "pyeongPrice": "3,155만"
+        },
+        {
+          "type": "55㎡C",
+          "units": 6,
+          "generalUnits": 0,
+          "price": "7억 9,845만",
+          "pyeongPrice": "3,155만"
+        },
+        {
+          "type": "56㎡T",
+          "units": 3,
+          "generalUnits": 0,
+          "price": "8억 1,214만",
+          "pyeongPrice": "3,155만"
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026820008"
+    },
+    {
+      "name": "브라운스톤 월곡 센트럴",
+      "region": "서울",
+      "address": "서울특별시 성북구 하월곡동 70-4번지 일원",
+      "builder": "이수건설 주식회사",
+      "supplyType": "일반분양",
+      "status": "접수예정",
+      "receipt": "9월 7일(월) ~ 9월 10일(목)",
+      "startDate": "2026-09-07",
+      "mainType": "59㎡A",
+      "mainTypeUnits": 28,
+      "mainPrice": "9억 1,000만",
+      "mainPricePyeong": "3,682만",
+      "totalUnits": 62,
+      "priceRange": "8억 6,200만 ~ 10억 7,500만원",
+      "movein": "2029년 3월",
+      "byType": [
+        {
+          "type": "59㎡A",
+          "units": 28,
+          "generalUnits": 7,
+          "price": "9억 1,000만",
+          "pyeongPrice": "3,682만"
+        },
+        {
+          "type": "59㎡B",
+          "units": 11,
+          "generalUnits": 6,
+          "price": "8억 9,200만",
+          "pyeongPrice": "3,609만"
+        },
+        {
+          "type": "59㎡C",
+          "units": 18,
+          "generalUnits": 9,
+          "price": "8억 6,200만",
+          "pyeongPrice": "3,496만"
+        },
+        {
+          "type": "74㎡",
+          "units": 5,
+          "generalUnits": 5,
+          "price": "10억 7,500만",
+          "pyeongPrice": "3,467만"
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000399"
+    },
+    {
+      "name": "의정부우정 A2블록 공공분양주택(본청약)",
+      "region": "경기",
+      "address": "경기도 의정부시 녹양동 일원 의정부우정 공공주택지구 내 A-2블록",
+      "builder": "남광토건 주식회사, 금광기업(주), 경안종합건설 주식회사, 중앙건설 주식회사",
+      "supplyType": "일반분양",
+      "status": "접수예정",
+      "receipt": "9월 7일(월) ~ 9월 17일(목)",
+      "startDate": "2026-09-07",
+      "mainType": "59㎡A",
+      "mainTypeUnits": 140,
+      "mainPrice": "4억 646만",
+      "mainPricePyeong": "1,600만",
+      "totalUnits": 463,
+      "priceRange": "4억 419만 ~ 4억 646만원",
+      "movein": "2029년 5월",
+      "byType": [
+        {
+          "type": "59㎡A",
+          "units": 140,
+          "generalUnits": 20,
+          "price": "4억 646만",
+          "pyeongPrice": "1,600만"
+        },
+        {
+          "type": "59㎡B",
+          "units": 45,
+          "generalUnits": 7,
+          "price": "4억 419만",
+          "pyeongPrice": "1,590만"
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000409"
+    },
+    {
+      "name": "양주회천지구 A-26블록 공공분양주택",
+      "region": "경기",
+      "address": "경기도 양주시 덕정동 일원 양주신도시 택지개발지구 내 A-26블록",
+      "builder": "양우종합건설 주식회사, (주)우호건설, 주식회사 대명건설",
+      "supplyType": "일반분양",
+      "status": "접수예정",
+      "receipt": "9월 14일(월) ~ 9월 17일(목)",
+      "startDate": "2026-09-14",
+      "mainType": "59㎡A",
+      "mainTypeUnits": 262,
+      "mainPrice": "3억 5,708만",
+      "mainPricePyeong": "1,428만",
+      "totalUnits": 792,
+      "priceRange": "3억 5,093만 ~ 4억 9,201만원",
+      "movein": "2029년 10월",
+      "byType": [
+        {
+          "type": "59㎡A",
+          "units": 262,
+          "generalUnits": 41,
+          "price": "3억 5,708만",
+          "pyeongPrice": "1,428만"
+        },
+        {
+          "type": "59㎡B",
+          "units": 132,
+          "generalUnits": 20,
+          "price": "3억 5,093만",
+          "pyeongPrice": "1,399만"
+        },
+        {
+          "type": "74㎡A",
+          "units": 87,
+          "generalUnits": 13,
+          "price": "4억 3,704만",
+          "pyeongPrice": "1,399만"
+        },
+        {
+          "type": "74㎡B",
+          "units": 81,
+          "generalUnits": 12,
+          "price": "4억 3,718만",
+          "pyeongPrice": "1,393만"
+        },
+        {
+          "type": "84㎡A",
+          "units": 230,
+          "generalUnits": 33,
+          "price": "4억 9,201만",
+          "pyeongPrice": "1,385만"
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000416"
+    },
+    {
+      "name": "인천계양지구 A6블록 공공분양주택(본청약)",
+      "region": "인천",
+      "address": "인천광역시 계양구 귤현동, 동양동, 박촌동, 병방동, 상야동 및 경기도 부천시 대장동, 서울특별시 강서구 오곡동 일원 인천계양 테크노밸리 공공주택지구 내 A6블록",
+      "builder": "(주)케이알산업, 우암건설(주)",
+      "supplyType": "일반분양",
+      "status": "접수예정",
+      "receipt": "9월 17일(목) ~ 10월 2일(금)",
+      "startDate": "2026-09-17",
+      "mainType": "59㎡A",
+      "mainTypeUnits": 103,
+      "mainPrice": "5억 3,736만",
+      "mainPricePyeong": "2,175만",
+      "totalUnits": 663,
+      "priceRange": "5억 466만 ~ 7억 1,654만원",
+      "movein": "2029년 6월",
+      "byType": [
+        {
+          "type": "59㎡A",
+          "units": 103,
+          "generalUnits": 13,
+          "price": "5억 3,736만",
+          "pyeongPrice": "2,175만"
+        },
+        {
+          "type": "59㎡B",
+          "units": 52,
+          "generalUnits": 8,
+          "price": "5억 2,656만",
+          "pyeongPrice": "2,133만"
+        },
+        {
+          "type": "59㎡C",
+          "units": 0,
+          "generalUnits": 0,
+          "price": "5억 1,578만",
+          "pyeongPrice": "2,088만"
+        },
+        {
+          "type": "59㎡D",
+          "units": 4,
+          "generalUnits": 3,
+          "price": "5억 466만",
+          "pyeongPrice": "2,047만"
+        },
+        {
+          "type": "59㎡E",
+          "units": 33,
+          "generalUnits": 3,
+          "price": "5억 474만",
+          "pyeongPrice": "2,047만"
+        },
+        {
+          "type": "59㎡G",
+          "units": 6,
+          "generalUnits": 0,
+          "price": "5억 3,853만",
+          "pyeongPrice": "2,175만"
+        },
+        {
+          "type": "59㎡H",
+          "units": 1,
+          "generalUnits": 1,
+          "price": "5억 2,665만",
+          "pyeongPrice": "2,133만"
+        },
+        {
+          "type": "69㎡P",
+          "units": 2,
+          "generalUnits": 2,
+          "price": "5억 9,625만",
+          "pyeongPrice": "2,069만"
+        },
+        {
+          "type": "74㎡O",
+          "units": 32,
+          "generalUnits": 4,
+          "price": "6억 4,649만",
+          "pyeongPrice": "2,090만"
+        },
+        {
+          "type": "77㎡A",
+          "units": 5,
+          "generalUnits": 3,
+          "price": "6억 6,107만",
+          "pyeongPrice": "2,069만"
+        },
+        {
+          "type": "77㎡C",
+          "units": 0,
+          "generalUnits": 0,
+          "price": "6억 5,453만",
+          "pyeongPrice": "2,048만"
+        },
+        {
+          "type": "84㎡A",
+          "units": 8,
+          "generalUnits": 1,
+          "price": "7억 1,654만",
+          "pyeongPrice": "2,047만"
+        },
+        {
+          "type": "84㎡B",
+          "units": 5,
+          "generalUnits": 0,
+          "price": "7억 395만",
+          "pyeongPrice": "2,006만"
+        }
+      ],
+      "detailUrl": "https://cheongyak.today/notice/2026000414"
+    }
+  ]
+}

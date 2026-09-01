@@ -1,0 +1,1 @@
+-keep class com.englishloop.app.domain.model.** { *; }
