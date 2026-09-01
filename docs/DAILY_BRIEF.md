@@ -85,9 +85,17 @@ python scripts/build.py
 
 ## 5. 앱으로 전송
 
-**안드로이드 앱** — `data/brief.json` 을 앱이 바라보는 주소에 올린다.
-주소는 `android-app/app/build.gradle.kts` 의 `DEFAULT_BRIEF_URL` 에 있다.
-앱을 다시 빌드하거나 설치할 필요는 없다. 파일만 갈아끼우면 된다.
+**안드로이드 앱** — `data/brief.json` 을 커밋해서 GitHub 에 올린다.
+
+```bash
+git add data/ dist/ android-app/app/src/main/assets/brief.json
+git commit -m "9월 2일 브리핑"
+git push
+```
+
+폰은 `master` 브랜치의 `data/brief.json` 을 그대로 읽는다.
+**앱을 다시 빌드하거나 설치할 필요는 없다. 파일만 갈아끼우면 된다.**
+(raw.githubusercontent.com 은 최대 5분 정도 캐시된다.)
 
 **웹 페이지** — `dist/index.html` 을 **같은 Artifact URL로 재배포**한다.
 URL은 `docs/ARTIFACT.md` 에 적혀 있다.

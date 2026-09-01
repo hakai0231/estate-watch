@@ -12,6 +12,15 @@ Claude가 데이터를 모아 파일을 만들고, 휴대폰 앱이 그 파일�
 
 앱 쪽 자세한 내용은 [docs/ANDROID.md](docs/ANDROID.md).
 
+## 앱이 브리핑을 받아오는 주소
+
+```
+https://raw.githubusercontent.com/hakai0231/estate-watch/master/data/brief.json
+```
+
+이 저장소의 `master` 브랜치에 `data/brief.json` 을 올리면 폰이 그대로 읽는다.
+앱 안의 **설정**에서 주소를 바꿀 수도 있다.
+
 ## 탭 구성
 
 | 탭 | 내용 | 상태 |
