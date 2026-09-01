@@ -18,7 +18,7 @@ android {
         buildConfigField(
             "String",
             "DEFAULT_BRIEF_URL",
-            "\"https://raw.githubusercontent.com/hakai0231/estate-watch/main/data/brief.json\""
+            "\"https://raw.githubusercontent.com/hakai0231/estate-watch/master/data/brief.json\""
         )
     }
 
