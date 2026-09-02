@@ -12,6 +12,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import com.estatewatch.app.data.ApplyResult
@@ -45,6 +46,10 @@ class MainActivity : Activity() {
     private var refreshing = false
     private var detailOpen = false
 
+    /** 목록에서 상세로 들어갔다 돌아올 때 보던 위치를 되살린다. */
+    private val scrollMemory = mutableMapOf<Tab, Int>()
+    private var restoreScroll = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         repo = BriefRepository(this)
@@ -74,6 +79,7 @@ class MainActivity : Activity() {
     override fun onBackPressed() {
         if (detailOpen) {
             detailOpen = false
+            restoreScroll = true
             render()
         } else {
             super.onBackPressed()
@@ -149,8 +155,10 @@ class MainActivity : Activity() {
         tabRow.removeAllViews()
         Tab.entries.forEachIndexed { index, entry ->
             val button = UiKit.tabButton(this, entry.label, entry == tab) {
+                rememberScroll()
                 tab = entry
                 detailOpen = false
+                restoreScroll = true
                 render()
             }
             tabRow.addView(button, LinearLayout.LayoutParams(0, WRAP, 1f).apply {
@@ -176,6 +184,18 @@ class MainActivity : Activity() {
     private fun show(content: View) {
         stage.removeAllViews()
         stage.addView(content, FrameLayout.LayoutParams(MATCH, MATCH))
+        if (restoreScroll && !detailOpen && content is ScrollView) {
+            val target = scrollMemory[tab] ?: 0
+            // 화면이 다 그려진 뒤라야 그만큼 내려갈 수 있다.
+            content.post { content.scrollTo(0, target) }
+        }
+        restoreScroll = false
+    }
+
+    /** 지금 목록에서 얼마나 내려와 있는지 기억해 둔다. */
+    private fun rememberScroll() {
+        if (detailOpen) return
+        (stage.getChildAt(0) as? ScrollView)?.let { scrollMemory[tab] = it.scrollY }
     }
 
     private fun datelineText(): String {
@@ -234,6 +254,7 @@ class MainActivity : Activity() {
     }
 
     private fun openNews(item: NewsItem) {
+        rememberScroll()
         detailOpen = true
         refreshTabs()
         val page = UiKit.column(this)
@@ -312,7 +333,8 @@ class MainActivity : Activity() {
                     Triple("최고 경쟁률", rateText(row.maxRate), null)
                 ),
                 highlight = 2,
-                weights = listOf(.85f, 1.2f, 1.1f, .95f)
+                weights = listOf(.85f, 1.2f, 1.1f, .95f),
+                subs = listOf(null, pyeongPrice(row.mainPricePyeong), null, null)
             ),
             UiKit.stacked(context, top = 9)
         )
@@ -362,7 +384,8 @@ class MainActivity : Activity() {
                     Triple("접수", row.receipt, null)
                 ),
                 highlight = 2,
-                weights = listOf(.8f, 1.15f, .8f, 1.25f)
+                weights = listOf(.8f, 1.15f, .8f, 1.25f),
+                subs = listOf(null, pyeongPrice(row.mainPricePyeong), null, null)
             ),
             UiKit.stacked(context, top = 9)
         )
@@ -386,6 +409,7 @@ class MainActivity : Activity() {
         lat: Double? = null,
         lon: Double? = null
     ) {
+        rememberScroll()
         detailOpen = true
         refreshTabs()
         val page = UiKit.column(this)
@@ -546,6 +570,7 @@ class MainActivity : Activity() {
     private fun backBar(label: String): View =
         UiKit.quietButton(this, "‹  $label") {
             detailOpen = false
+            restoreScroll = true
             render()
         }.apply {
             gravity = Gravity.START or Gravity.CENTER_VERTICAL
@@ -556,6 +581,10 @@ class MainActivity : Activity() {
         gravity = Gravity.CENTER
         setPadding(0, dp(26), 0, dp(26))
     }
+
+    /** 평당가. 분양가 ÷ 공급면적(평) 이며 청약홈 공고 기준값을 그대로 쓴다. */
+    private fun pyeongPrice(raw: String): String? =
+        raw.takeIf { it.isNotBlank() }?.let { "@$it/평" }
 
     private fun rateText(value: Double?): String = when {
         value == null -> "미달"
@@ -631,6 +660,7 @@ class MainActivity : Activity() {
     }
 
     private fun showSettings() {
+        rememberScroll()
         detailOpen = true
         refreshTabs()
         val page = UiKit.column(this)

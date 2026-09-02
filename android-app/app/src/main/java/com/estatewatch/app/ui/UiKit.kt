@@ -132,7 +132,8 @@ object UiKit {
         context: Context,
         cells: List<Triple<String, String, Int?>>,
         highlight: Int = -1,
-        weights: List<Float> = emptyList()
+        weights: List<Float> = emptyList(),
+        subs: List<String?> = emptyList()
     ): LinearLayout = row(context) {
         background = rounded(
             context.color(R.color.line), context.dp(9),
@@ -154,6 +155,14 @@ object UiKit {
                     setTypeface(typeface, Typeface.BOLD)
                     setTextColor(context.color(tintColor ?: R.color.ink))
                 })
+                subs.getOrNull(index)?.takeIf { it.isNotBlank() }?.let { sub ->
+                    addView(TextView(context).apply {
+                        text = sub
+                        textSize = 10.5f
+                        gravity = Gravity.CENTER
+                        setTextColor(context.color(R.color.faint))
+                    })
+                }
             }
             addView(cell, LinearLayout.LayoutParams(0, WRAP, weights.getOrElse(index) { 1f }).apply {
                 if (index > 0) leftMargin = context.dp(1)
