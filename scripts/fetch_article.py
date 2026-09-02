@@ -30,6 +30,7 @@ BODY_PATTERNS = [
 # (연합뉴스는 <div class="story-news article"> 안에 div 가 여러 겹 들어 있다)
 BODY_ANCHORS = [
     ('class="story-news', '</article>'),        # 연합뉴스
+    ('<article id="dic_area"', '</article>'),   # 네이버 뉴스
 ]
 
 DROP = re.compile(
@@ -59,6 +60,9 @@ def paragraphs(url: str) -> list[str]:
             paras = re.findall(r"<p[^>]*>([\s\S]*?)</p>", chunk)
             if paras:
                 body = "</p><p>".join(paras)
+                break
+            if len(chunk) > 400:      # <p> 없이 <br> 로만 나뉜 본문 (네이버)
+                body = chunk
                 break
 
     if not body:

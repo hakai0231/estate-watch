@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import pathlib
+import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "web" / "template.html"
@@ -19,6 +20,9 @@ BRIEF_OUT = ROOT / "data" / "brief.json"
 ASSET_OUT = ROOT / "android-app" / "app" / "src" / "main" / "assets" / "brief.json"
 
 SOURCES = {"news": ROOT / "data" / "news.json", "apply": ROOT / "data" / "apply.json"}
+
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
+import fetch_news  # noqa: E402
 
 
 def load(path: pathlib.Path) -> dict:
@@ -44,6 +48,12 @@ def main() -> None:
         raise SystemExit("template.html 에 __DATA__ 자리표시자가 없습니다")
     HTML_OUT.parent.mkdir(parents=True, exist_ok=True)
     HTML_OUT.write_text(html.replace("__DATA__", blob), encoding="utf-8")
+
+    # 오늘 고른 제목을 기록해 둔다. 내일 같은 사안을 다시 고르지 않기 위해서다.
+    today = payload.get("news", {})
+    if today.get("date") and today.get("items"):
+        fetch_news.remember(today["date"], [i.get("title", "") for i in today["items"]])
+        print(f"  · 오늘 선택 {len(today['items'])}건을 news_history.json 에 기록")
 
     news = len(payload.get("news", {}).get("items", []))
     res = len(payload.get("apply", {}).get("results", []))
