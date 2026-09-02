@@ -68,6 +68,10 @@ Android Studio에서 열려면 `android-app` 폴더를 **Open** 하면 된다.
 | 2 | `KAKAO_JS_KEY` | developers.kakao.com > 앱 설정 > 플랫폼 키 > JavaScript 키 |
 | 3 | (없음) | OpenStreetMap 으로 자동 대체 |
 
+**서비스 URL 은 marketability 용으로 이미 등록해 둔 것을 재사용한다.**
+현재 `NAVER_MAP_ORIGIN` 은 `https://marketability-analysis.jhlee5399.chatgpt.site` 이다.
+새로 등록할 필요가 없다. 다른 주소를 쓰려면 아래를 참고한다.
+
 **서비스 URL 등록이 필요하다.** 네이버·카카오 SDK 는 호출한 도메인을 확인하기 때문이다.
 앱의 WebView 를 `KAKAO_MAP_ORIGIN` / `NAVER_MAP_ORIGIN` (기본값 `https://estate-watch.local`)
 으로 띄우므로, 콘솔의 서비스 URL 목록에 그 주소를 그대로 추가한다.
@@ -75,6 +79,18 @@ Android Studio에서 열려면 `android-app` 폴더를 **Open** 하면 된다.
 
 - 네이버: 콘솔 > Application > 해당 Application > **Web 서비스 URL** 에 추가
 - 카카오: 앱 설정 > 플랫폼 > Web > **사이트 도메인** 에 추가
+
+`http` 주소는 SDK 가 500 으로 거절하므로 **https 주소를 쓴다.**
+
+네이버 지도 SDK 는 타일을 http 로 받아오므로 `res/xml/network_security_config.xml` 에서
+`*.map.naver.com`, `*.map.naver.net` 만 평문 통신을 허용해 두었다. 나머지는 전부 금지다.
+
+지도가 안 뜨면 원인을 이렇게 본다.
+
+```
+adb logcat -c
+adb logcat -s EstateWatchMap
+```
 
 등록하지 않으면 지도 자리에 인증 오류가 뜬다. 그때는 `.env` 의 해당 값을 비우면
 OSM 으로 돌아가므로 앱이 멈추지는 않는다.

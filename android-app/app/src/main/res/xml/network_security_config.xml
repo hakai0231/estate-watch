@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  기본은 평문(http) 통신 금지다.
+  다만 네이버 지도 SDK 가 타일을 http 로 받아오므로 그 도메인만 예외로 둔다.
+  (SDK 가 콘솔에 직접 안내하는 설정이다)
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">map.naver.com</domain>
+        <domain includeSubdomains="true">map.naver.net</domain>
+    </domain-config>
+</network-security-config>
