@@ -14,6 +14,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.Space
 import android.widget.TextView
+import com.estatewatch.app.BuildConfig
 import com.estatewatch.app.R
 
 fun Context.dp(value: Int) = (value * resources.displayMetrics.density).toInt()
@@ -179,12 +180,6 @@ object UiKit {
      * 아파트 단지명·지하철역까지 나올 만큼 충실하다. 손가락으로 확대·이동된다.
      */
     fun map(context: Context, lat: Double, lon: Double, heightDp: Int = 260): View {
-        val span = 0.005                      // 대략 반경 400m
-        val url = "https://www.openstreetmap.org/export/embed.html" +
-            "?bbox=" + (lon - span) + "%2C" + (lat - span / 2) +
-            "%2C" + (lon + span) + "%2C" + (lat + span / 2) +
-            "&layer=mapnik&marker=" + lat + "%2C" + lon
-
         val web = WebView(context).apply {
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
@@ -196,7 +191,18 @@ object UiKit {
                 view.parent?.requestDisallowInterceptTouchEvent(true)
                 false
             }
-            loadUrl(url)
+            if (BuildConfig.KAKAO_JS_KEY.isNotBlank()) {
+                // 카카오 SDK 는 호출 도메인을 확인하므로 등록한 주소인 척 띄운다.
+                loadDataWithBaseURL(
+                    BuildConfig.KAKAO_MAP_ORIGIN,
+                    kakaoMapHtml(lat, lon),
+                    "text/html",
+                    "UTF-8",
+                    null
+                )
+            } else {
+                loadUrl(osmUrl(lat, lon))
+            }
         }
 
         return column(context) {
@@ -207,6 +213,33 @@ object UiKit {
             )
             addView(web, LinearLayout.LayoutParams(MATCH, context.dp(heightDp)))
         }
+    }
+
+    /** 카카오맵. 단지 위치에 마커를 찍고 확대·이동이 된다. */
+    private fun kakaoMapHtml(lat: Double, lon: Double): String = """
+        <!doctype html><html><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+        <style>html,body,#map{margin:0;padding:0;width:100%;height:100%;overflow:hidden}</style>
+        </head><body><div id="map"></div>
+        <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=${BuildConfig.KAKAO_JS_KEY}&autoload=false"></script>
+        <script>
+          kakao.maps.load(function () {
+            var spot = new kakao.maps.LatLng($lat, $lon);
+            var map = new kakao.maps.Map(document.getElementById('map'), { center: spot, level: 4 });
+            new kakao.maps.Marker({ map: map, position: spot });
+            map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
+          });
+        </script></body></html>
+    """.trimIndent()
+
+    /** 카카오 키가 없을 때 쓰는 대체 지도. 키가 필요 없다. */
+    private fun osmUrl(lat: Double, lon: Double): String {
+        val span = 0.005
+        return "https://www.openstreetmap.org/export/embed.html" +
+            "?bbox=" + (lon - span) + "%2C" + (lat - span / 2) +
+            "%2C" + (lon + span) + "%2C" + (lat + span / 2) +
+            "&layer=mapnik&marker=" + lat + "%2C" + lon
     }
 
     // ── 조작 ──────────────────────────────────────────────────────────────

@@ -47,7 +47,8 @@ Android Studio에서 열려면 `android-app` 폴더를 **Open** 하면 된다.
 
 상세 화면 **맨 위에 단지 위치 지도**가 뜬다. 손가락으로 확대·이동된다.
 
-- 지도는 **OpenStreetMap**. API 키가 필요 없고, 한국 지도도 아파트 단지명·지하철역까지 나온다.
+- 지도는 **카카오맵**. `.env` 의 `KAKAO_JS_KEY` 가 채워져 있을 때만 쓴다.
+  키가 비어 있으면 **OpenStreetMap** 으로 자동 대체된다(키 불필요).
 - 좌표는 앱이 아니라 **수집 단계에서** 붙인다 (`scripts/geocode.py`).
   카카오 로컬 API 로 **지번까지 정확하게** 찾고, 키가 없으면 OSM(동 단위)으로 내려간다.
   카카오 키는 PC 의 `.env` 에만 있고 APK 에는 들어가지 않는다.
@@ -56,6 +57,24 @@ Android Studio에서 열려면 `android-app` 폴더를 **Open** 하면 된다.
 - 한 번 찾은 주소는 `data/geocache.json` 에 쌓여 다시 조회하지 않는다.
 
 라이트/다크는 시스템 설정을 따라간다. 색과 간격은 웹 브리핑 페이지와 같은 값을 쓴다.
+
+## 카카오맵 켜기
+
+1. [developers.kakao.com](https://developers.kakao.com) > 내 애플리케이션 > (기존 앱) > **앱 설정 > 플랫폼 키**
+   에서 **JavaScript 키**를 복사한다. 새 앱을 만들지 않는다 — 새 앱은 무료 쿼터를 못 받는다.
+2. **앱 설정 > 플랫폼 > Web > 사이트 도메인**에 `https://estate-watch.local` 을 추가한다.
+   실제 존재하는 주소일 필요는 없다. 앱의 WebView 가 이 주소인 척 지도를 띄운다.
+3. 프로젝트 루트 `.env` 에 값을 넣는다.
+
+   ```
+   KAKAO_JS_KEY=복사한_JavaScript_키
+   KAKAO_MAP_ORIGIN=https://estate-watch.local
+   ```
+
+4. `.\scriptsuild-android.ps1` 로 다시 빌드한다.
+
+JS 키는 APK 안에 들어가지만 **등록한 도메인에서만 동작**하므로 남이 가져가도 쓸 수 없다.
+REST 키(주소→좌표)는 APK 에 들어가지 않는다.
 
 ## 구조
 
