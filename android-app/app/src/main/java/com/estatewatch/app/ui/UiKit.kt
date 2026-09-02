@@ -191,17 +191,15 @@ object UiKit {
                 view.parent?.requestDisallowInterceptTouchEvent(true)
                 false
             }
-            if (BuildConfig.KAKAO_JS_KEY.isNotBlank()) {
-                // 카카오 SDK 는 호출 도메인을 확인하므로 등록한 주소인 척 띄운다.
-                loadDataWithBaseURL(
-                    BuildConfig.KAKAO_MAP_ORIGIN,
-                    kakaoMapHtml(lat, lon),
-                    "text/html",
-                    "UTF-8",
-                    null
+            // 지도 SDK 들은 호출 도메인을 확인하므로 등록한 주소인 척 띄운다.
+            when {
+                BuildConfig.NAVER_MAP_CLIENT_ID.isNotBlank() -> loadDataWithBaseURL(
+                    BuildConfig.NAVER_MAP_ORIGIN, naverMapHtml(lat, lon), "text/html", "UTF-8", null
                 )
-            } else {
-                loadUrl(osmUrl(lat, lon))
+                BuildConfig.KAKAO_JS_KEY.isNotBlank() -> loadDataWithBaseURL(
+                    BuildConfig.KAKAO_MAP_ORIGIN, kakaoMapHtml(lat, lon), "text/html", "UTF-8", null
+                )
+                else -> loadUrl(osmUrl(lat, lon))
             }
         }
 
@@ -214,6 +212,25 @@ object UiKit {
             addView(web, LinearLayout.LayoutParams(MATCH, context.dp(heightDp)))
         }
     }
+
+    /** 네이버 지도. 단지 위치에 마커를 찍고 확대·이동이 된다. */
+    private fun naverMapHtml(lat: Double, lon: Double): String = """
+        <!doctype html><html><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+        <style>html,body,#map{margin:0;padding:0;width:100%;height:100%;overflow:hidden}</style>
+        </head><body><div id="map"></div>
+        <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${BuildConfig.NAVER_MAP_CLIENT_ID}"></script>
+        <script>
+          var spot = new naver.maps.LatLng($lat, $lon);
+          var map = new naver.maps.Map('map', {
+            center: spot, zoom: 16,
+            zoomControl: true,
+            zoomControlOptions: { position: naver.maps.Position.RIGHT_CENTER }
+          });
+          new naver.maps.Marker({ position: spot, map: map });
+        </script></body></html>
+    """.trimIndent()
 
     /** 카카오맵. 단지 위치에 마커를 찍고 확대·이동이 된다. */
     private fun kakaoMapHtml(lat: Double, lon: Double): String = """

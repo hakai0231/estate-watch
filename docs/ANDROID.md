@@ -47,8 +47,8 @@ Android Studio에서 열려면 `android-app` 폴더를 **Open** 하면 된다.
 
 상세 화면 **맨 위에 단지 위치 지도**가 뜬다. 손가락으로 확대·이동된다.
 
-- 지도는 **카카오맵**. `.env` 의 `KAKAO_JS_KEY` 가 채워져 있을 때만 쓴다.
-  키가 비어 있으면 **OpenStreetMap** 으로 자동 대체된다(키 불필요).
+- 지도는 `.env` 에 있는 것을 **네이버 → 카카오 → OpenStreetMap** 순으로 골라 쓴다.
+  셋 다 없어도 OSM 은 키가 필요 없으므로 앱은 항상 지도를 보여준다.
 - 좌표는 앱이 아니라 **수집 단계에서** 붙인다 (`scripts/geocode.py`).
   카카오 로컬 API 로 **지번까지 정확하게** 찾고, 키가 없으면 OSM(동 단위)으로 내려간다.
   카카오 키는 PC 의 `.env` 에만 있고 APK 에는 들어가지 않는다.
@@ -58,23 +58,29 @@ Android Studio에서 열려면 `android-app` 폴더를 **Open** 하면 된다.
 
 라이트/다크는 시스템 설정을 따라간다. 색과 간격은 웹 브리핑 페이지와 같은 값을 쓴다.
 
-## 카카오맵 켜기
+## 지도 공급자 바꾸기
 
-1. [developers.kakao.com](https://developers.kakao.com) > 내 애플리케이션 > (기존 앱) > **앱 설정 > 플랫폼 키**
-   에서 **JavaScript 키**를 복사한다. 새 앱을 만들지 않는다 — 새 앱은 무료 쿼터를 못 받는다.
-2. **앱 설정 > 플랫폼 > Web > 사이트 도메인**에 `https://estate-watch.local` 을 추가한다.
-   실제 존재하는 주소일 필요는 없다. 앱의 WebView 가 이 주소인 척 지도를 띄운다.
-3. 프로젝트 루트 `.env` 에 값을 넣는다.
+`.env` 값에 따라 자동으로 정해진다. 코드를 고칠 필요는 없다.
 
-   ```
-   KAKAO_JS_KEY=복사한_JavaScript_키
-   KAKAO_MAP_ORIGIN=https://estate-watch.local
-   ```
+| 우선순위 | 필요한 값 | 어디서 |
+|---|---|---|
+| 1 | `NAVER_MAP_CLIENT_ID` | ncloud.com > Application > Maps 의 Client ID |
+| 2 | `KAKAO_JS_KEY` | developers.kakao.com > 앱 설정 > 플랫폼 키 > JavaScript 키 |
+| 3 | (없음) | OpenStreetMap 으로 자동 대체 |
 
-4. `.\scriptsuild-android.ps1` 로 다시 빌드한다.
+**서비스 URL 등록이 필요하다.** 네이버·카카오 SDK 는 호출한 도메인을 확인하기 때문이다.
+앱의 WebView 를 `KAKAO_MAP_ORIGIN` / `NAVER_MAP_ORIGIN` (기본값 `https://estate-watch.local`)
+으로 띄우므로, 콘솔의 서비스 URL 목록에 그 주소를 그대로 추가한다.
+실제로 존재하는 주소일 필요는 없다.
 
-JS 키는 APK 안에 들어가지만 **등록한 도메인에서만 동작**하므로 남이 가져가도 쓸 수 없다.
-REST 키(주소→좌표)는 APK 에 들어가지 않는다.
+- 네이버: 콘솔 > Application > 해당 Application > **Web 서비스 URL** 에 추가
+- 카카오: 앱 설정 > 플랫폼 > Web > **사이트 도메인** 에 추가
+
+등록하지 않으면 지도 자리에 인증 오류가 뜬다. 그때는 `.env` 의 해당 값을 비우면
+OSM 으로 돌아가므로 앱이 멈추지는 않는다.
+
+지도 표시용 키(JS 키·Client ID)는 APK 에 들어가지만 **등록한 도메인에서만 동작**한다.
+주소→좌표에 쓰는 `KAKAO_REST_API_KEY` 는 APK 에 들어가지 않는다.
 
 ## 구조
 

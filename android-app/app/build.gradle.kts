@@ -27,6 +27,9 @@ android {
         testInstrumentationRunner = "android.test.InstrumentationTestRunner"
 
         // 매일 아침 갱신된 브리핑을 받아오는 주소. 앱 설정에서 바꿀 수 있다.
+        // 앱 안 지도. 네이버 -> 카카오 -> OSM 순으로 있는 것을 쓴다.
+        buildConfigField("String", "NAVER_MAP_CLIENT_ID", "\"" + envValue("NAVER_MAP_CLIENT_ID") + "\"")
+        buildConfigField("String", "NAVER_MAP_ORIGIN", "\"" + (envValue("NAVER_MAP_ORIGIN").ifBlank { "https://estate-watch.local" }) + "\"")
         // 카카오맵 JavaScript 키. 도메인 제한이 걸린 키이며, 없으면 OSM 지도를 쓴다.
         buildConfigField("String", "KAKAO_JS_KEY", "\"" + envValue("KAKAO_JS_KEY") + "\"")
         // 카카오 개발자 콘솔에 등록해야 하는 도메인. WebView 가 이 주소인 척 지도를 띄운다.
