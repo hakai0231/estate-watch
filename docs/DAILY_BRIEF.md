@@ -140,27 +140,31 @@ URL은 `docs/ARTIFACT.md` 에 적혀 있다.
 
 ## 권한
 
-`.claude/settings.json` 에서 **자동 모드**(`defaultMode: "auto"`)로 둔다.
-매번 허용 요청이 뜨면 새벽에 멈추기 때문이다.
+**`~/.claude/settings.json` (사용자 전체)** 에서 자동 모드로 둔다.
+프로젝트마다 따로 설정할 필요가 없고, 앞으로 만드는 루틴도 처음부터 자동으로 돈다.
+
+```json
+"permissions": {
+  "defaultMode": "auto",
+  "deny": ["Bash(git push --force*)", "Bash(git reset --hard*)",
+           "Bash(rm -rf *)", "Read(**/.env)", ...]
+}
+```
 
 명령 하나하나를 허용 목록으로 맞추는 방식은 **포기했다.** 실제로 나오는 모양이
 `cd "..." && python ...`, `PYTHONIOENCODING=utf-8 python ...`, `... | tail -100`,
 `python -c "..."` 처럼 끝없이 갈라져서 규칙이 못 따라간다.
 2026-09-03 아침에 이것 때문에 15건 전부 요청이 떴다.
 
-대신 **정말 위험한 것만 막는다.**
+대신 **되돌릴 수 없는 것만 막는다** — `git push --force`, `git reset --hard`,
+`git clean -fd`, `rm -rf`, 그리고 `.env`·개인키 읽기.
+`.env` 차단은 카카오·네이버 키가 대화 기록에 남지 않게 하려는 것이다.
+수집 스크립트는 파이썬 안에서 직접 읽으므로 영향받지 않는다.
 
-```
-git push --force / -f      되돌릴 수 없음
-git reset --hard
-git clean -fd
-rm -rf
-.env 읽기                  카카오·네이버 키가 대화에 남지 않게
-```
+프로젝트 `.claude/settings.json` 에는 그 프로젝트에만 해당하는 것만 둔다
+(여기서는 `data/` 쓰기). 원래 설정은 `settings.backup-*.json` 으로 남겨 두었다.
 
-수집 스크립트는 파이썬 안에서 `.env` 를 직접 읽으므로 마지막 항목과 무관하게 동작한다.
-
-> 자동 모드를 처음 쓸 때 한 번 동의를 묻는다. 그때 승인해 두면 다음부터 안 묻는다.
+> 자동 모드는 처음 한 번만 동의를 묻는다. 승인하면 다시 묻지 않는다.
 
 ---
 
