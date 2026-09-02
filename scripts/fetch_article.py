@@ -22,9 +22,14 @@ import apply_source as src  # noqa: E402
 # 매체별 본문 컨테이너. 순서대로 시도한다.
 BODY_PATTERNS = [
     r'<div[^>]*id="articletxt"[^>]*>([\s\S]*?)</div>\s*</div>',          # 한국경제
-    r'<article[^>]*class="[^"]*story-news[^"]*"[^>]*>([\s\S]*?)</article>',  # 연합뉴스
     r'<div[^>]*itemprop="articleBody"[^>]*>([\s\S]*?)</div>\s*</div>',
     r'<div[^>]*class="[^"]*article-body[^"]*"[^>]*>([\s\S]*?)</div>\s*</div>',
+]
+
+# 여는 태그와 닫는 태그가 정규식으로 짝이 안 맞는 곳은 시작·끝 표시로 잘라낸다.
+# (연합뉴스는 <div class="story-news article"> 안에 div 가 여러 겹 들어 있다)
+BODY_ANCHORS = [
+    ('class="story-news', '</article>'),        # 연합뉴스
 ]
 
 DROP = re.compile(
@@ -42,6 +47,20 @@ def paragraphs(url: str) -> list[str]:
         if m and len(m.group(1)) > 400:
             body = m.group(1)
             break
+
+    if not body:
+        for start, end in BODY_ANCHORS:
+            i = page.find(start)
+            if i < 0:
+                continue
+            j = page.find(end, i)
+            chunk = page[i:j if j > 0 else len(page)]
+            # 이 구간의 <p> 만 모으면 기자 프로필·관련기사 목록이 걸러진다.
+            paras = re.findall(r"<p[^>]*>([\s\S]*?)</p>", chunk)
+            if paras:
+                body = "</p><p>".join(paras)
+                break
+
     if not body:
         return []
 
@@ -58,7 +77,10 @@ def paragraphs(url: str) -> list[str]:
         text = re.sub(r"\n+", " ", text)
         if len(text) < 25:
             continue
+        # 사진 설명·저작권 안내·제보 안내 같은 상투 문구는 본문이 아니다.
         if re.match(r"^(사진|자료|그래픽|ⓒ|저작권|무단|기자|<|\[)", text):
+            continue
+        if re.search(r"제보는 카카오톡|무단 전재|재배포 금지|AI 학습", text):
             continue
         out.append(text)
     return out
