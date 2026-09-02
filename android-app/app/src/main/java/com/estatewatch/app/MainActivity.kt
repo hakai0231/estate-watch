@@ -25,6 +25,7 @@ import com.estatewatch.app.ui.UiKit.MATCH
 import com.estatewatch.app.ui.UiKit.WRAP
 import com.estatewatch.app.ui.color
 import com.estatewatch.app.ui.dp
+import java.net.URLEncoder
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -323,7 +324,27 @@ class MainActivity : Activity() {
             ),
             UiKit.stacked(context, top = 8)
         )
+        addView(
+            actionRow(
+                { openApplyDetail(row.name, row.address, row.builder, row.byType, true, row.detailUrl) },
+                { openMap(row.name, row.address) }
+            ),
+            UiKit.stacked(context, top = 10)
+        )
     }
+
+    /** 카드 아래 두 버튼. 카드 전체를 눌러도 되지만 눈에 보이는 버튼이 있어야 찾는다. */
+    private fun actionRow(onDetail: () -> Unit, onMap: () -> Unit): LinearLayout =
+        UiKit.row(this) {
+            addView(
+                UiKit.cardAction(context, "평형별 상세 ›", onDetail),
+                LinearLayout.LayoutParams(0, WRAP, 1f)
+            )
+            addView(
+                UiKit.cardAction(context, "지도 보기 ›", onMap),
+                LinearLayout.LayoutParams(0, WRAP, 1f).apply { leftMargin = dp(7) }
+            )
+        }
 
     private fun upcomingCard(row: Upcoming): View = UiKit.card(this) {
         isClickable = true
@@ -356,6 +377,13 @@ class MainActivity : Activity() {
             UiKit.faint(context, "전체 분양가 ${row.priceRange} · 입주 ${row.movein}", 11.5f),
             UiKit.stacked(context, top = 8)
         )
+        addView(
+            actionRow(
+                { openApplyDetail(row.name, row.address, row.builder, row.byType, false, row.detailUrl) },
+                { openMap(row.name, row.address) }
+            ),
+            UiKit.stacked(context, top = 10)
+        )
     }
 
     private fun openApplyDetail(
@@ -373,6 +401,16 @@ class MainActivity : Activity() {
         page.addView(UiKit.heading(this, name, 19f), UiKit.stacked(this, top = 6))
         page.addView(UiKit.muted(this, address, 13f), UiKit.stacked(this, top = 6))
         page.addView(UiKit.faint(this, "시공 $builder", 12.5f), UiKit.stacked(this, top = 4))
+        page.addView(UiKit.row(this) {
+            addView(
+                UiKit.cardAction(context, "네이버 지도 ›") { openMap(name, address, MapApp.NAVER) },
+                LinearLayout.LayoutParams(0, WRAP, 1f)
+            )
+            addView(
+                UiKit.cardAction(context, "카카오맵 ›") { openMap(name, address, MapApp.KAKAO) },
+                LinearLayout.LayoutParams(0, WRAP, 1f).apply { leftMargin = dp(7) }
+            )
+        }, UiKit.stacked(this, top = 12))
 
         page.addView(UiKit.caption(this, "주택형별 분양가"), UiKit.stacked(this, top = 20, bottom = 6))
         page.addView(typeTable(types, withRate))
@@ -531,6 +569,27 @@ class MainActivity : Activity() {
     }
 
     private fun Int.grouped(): String = String.format(Locale.KOREA, "%,d", this)
+
+    private enum class MapApp { NAVER, KAKAO }
+
+    /**
+     * 주소로 지도를 연다. 지도 앱이 깔려 있으면 앱이 뜨고, 없으면 브라우저로 열린다.
+     * 주소가 비어 있으면 단지명으로 검색한다.
+     */
+    private fun openMap(name: String, address: String, which: MapApp = MapApp.NAVER) {
+        val query = address.ifBlank { name }
+        if (query.isBlank()) {
+            toast("주소 정보가 없습니다")
+            return
+        }
+        val encoded = URLEncoder.encode(query, "UTF-8")
+        openUrl(
+            when (which) {
+                MapApp.NAVER -> "https://map.naver.com/p/search/$encoded"
+                MapApp.KAKAO -> "https://map.kakao.com/link/search/$encoded"
+            }
+        )
+    }
 
     private fun openUrl(url: String) {
         if (url.isBlank()) return

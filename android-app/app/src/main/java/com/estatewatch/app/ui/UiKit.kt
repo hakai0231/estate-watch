@@ -198,6 +198,24 @@ object UiKit {
         setOnClickListener { onClick() }
     }
 
+    /** 카드 아래에 붙는 작은 동작 버튼. "평형별 상세 >" 처럼 쓴다. */
+    fun cardAction(context: Context, text: String, onClick: () -> Unit): TextView =
+        TextView(context).apply {
+            this.text = text
+            textSize = 12.5f
+            gravity = Gravity.CENTER
+            setTypeface(typeface, Typeface.BOLD)
+            setTextColor(context.color(R.color.accent))
+            setPadding(context.dp(10), context.dp(10), context.dp(10), context.dp(11))
+            background = rounded(
+                context.color(R.color.accent_soft), context.dp(8),
+                context.color(R.color.line), context.dp(1)
+            )
+            isClickable = true
+            isFocusable = true
+            setOnClickListener { onClick() }
+        }
+
     fun quietButton(context: Context, text: String, onClick: () -> Unit): Button = Button(context).apply {
         this.text = text
         textSize = 13f
