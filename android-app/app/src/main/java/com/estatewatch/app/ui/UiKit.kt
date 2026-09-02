@@ -7,6 +7,9 @@ import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.util.Log
+import android.webkit.ConsoleMessage
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.EditText
@@ -186,6 +189,13 @@ object UiKit {
             settings.builtInZoomControls = true
             settings.displayZoomControls = false
             setBackgroundColor(context.color(R.color.surface_sunk))
+            // 지도가 안 뜰 때 원인을 보려면: adb logcat -s EstateWatchMap
+            webChromeClient = object : WebChromeClient() {
+                override fun onConsoleMessage(m: ConsoleMessage): Boolean {
+                    Log.d("EstateWatchMap", "${m.messageLevel()} ${m.message()} @${m.lineNumber()}")
+                    return true
+                }
+            }
             // 지도를 만지는 동안 바깥 스크롤이 가로채지 않게 한다.
             setOnTouchListener { view, _ ->
                 view.parent?.requestDisallowInterceptTouchEvent(true)
