@@ -102,6 +102,22 @@ URL은 `docs/ARTIFACT.md` 에 적혀 있다.
 
 ---
 
+## 권한
+
+`.claude/settings.json` 에 이 절차가 쓰는 명령만 미리 열어 두었다.
+새벽에 권한 질문으로 멈추지 않게 하기 위한 것이다.
+
+열어 둔 것 — `python scripts/*`, `git add/commit/push/status/log/diff`,
+`data/` 쓰기, 한국경제·연합뉴스·청약홈·오늘청약·raw.githubusercontent 조회.
+
+막아 둔 것 — `git push --force`, `git reset --hard`, `rm -rf`, 그리고 **`.env` 읽기**.
+카카오·네이버 키가 대화창에 노출되지 않게 하기 위한 것이다.
+수집 스크립트는 파이썬 안에서 `.env` 를 직접 읽으므로 이 차단과 무관하게 동작한다.
+
+절차에 없는 명령이 필요해지면 그때는 평소처럼 물어본다.
+
+---
+
 ## 확인 사항
 
 빌드 후 아래가 맞는지 본다.
