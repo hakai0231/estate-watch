@@ -15,6 +15,7 @@ from datetime import date, datetime
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import apply_source as src  # noqa: E402
+import geocode  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "apply.json"
@@ -183,6 +184,10 @@ def main() -> None:
     print(f"  분양결과 {len(results)}건")
     upcoming = collect_upcoming(today)
     print(f"  청약예정 {len(upcoming)}건")
+
+    # 앱 안에서 지도를 그리려면 좌표가 필요하다. 한 번 찾은 주소는 캐시에서 꺼내 쓴다.
+    located = geocode.attach(results + upcoming)
+    print(f"  좌표 {located}/{len(results) + len(upcoming)}건")
 
     payload = {
         "updatedAt": datetime.now(src.KST).isoformat(timespec="seconds"),

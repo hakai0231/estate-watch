@@ -7,6 +7,7 @@ import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -161,6 +162,41 @@ object UiKit {
                 if (index == 0) leftMargin = context.dp(1)
                 if (index == cells.lastIndex) rightMargin = context.dp(1)
             })
+        }
+    }
+
+    /**
+     * 단지 위치 지도. OpenStreetMap 을 쓴다 — API 키가 필요 없고, 한국 지도도
+     * 아파트 단지명·지하철역까지 나올 만큼 충실하다. 손가락으로 확대·이동된다.
+     */
+    fun map(context: Context, lat: Double, lon: Double, heightDp: Int = 210): View {
+        val span = 0.006                      // 대략 반경 500m
+        val url = "https://www.openstreetmap.org/export/embed.html" +
+            "?bbox=" + (lon - span) + "%2C" + (lat - span / 2) +
+            "%2C" + (lon + span) + "%2C" + (lat + span / 2) +
+            "&layer=mapnik&marker=" + lat + "%2C" + lon
+
+        val web = WebView(context).apply {
+            settings.javaScriptEnabled = true
+            settings.domStorageEnabled = true
+            settings.builtInZoomControls = true
+            settings.displayZoomControls = false
+            setBackgroundColor(context.color(R.color.surface_sunk))
+            // 지도를 만지는 동안 바깥 스크롤이 가로채지 않게 한다.
+            setOnTouchListener { view, _ ->
+                view.parent?.requestDisallowInterceptTouchEvent(true)
+                false
+            }
+            loadUrl(url)
+        }
+
+        return column(context) {
+            setPadding(context.dp(1), context.dp(1), context.dp(1), context.dp(1))
+            background = rounded(
+                context.color(R.color.line), context.dp(12),
+                context.color(R.color.line), context.dp(1)
+            )
+            addView(web, LinearLayout.LayoutParams(MATCH, context.dp(heightDp)))
         }
     }
 

@@ -291,7 +291,7 @@ class MainActivity : Activity() {
 
     private fun resultCard(row: ApplyResult): View = UiKit.card(this) {
         isClickable = true
-        setOnClickListener { openApplyDetail(row.name, row.address, row.builder, row.byType, true, row.detailUrl) }
+        setOnClickListener { openApplyDetail(row.name, row.address, row.builder, row.byType, true, row.detailUrl, row.lat, row.lon) }
 
         addView(UiKit.row(context) {
             addView(UiKit.chip(context, row.region))
@@ -325,30 +325,23 @@ class MainActivity : Activity() {
             UiKit.stacked(context, top = 8)
         )
         addView(
-            actionRow(
-                { openApplyDetail(row.name, row.address, row.builder, row.byType, true, row.detailUrl) },
-                { openMap(row.name, row.address) }
-            ),
+            actionRow { openApplyDetail(row.name, row.address, row.builder, row.byType, true, row.detailUrl, row.lat, row.lon) },
             UiKit.stacked(context, top = 10)
         )
     }
 
-    /** 카드 아래 두 버튼. 카드 전체를 눌러도 되지만 눈에 보이는 버튼이 있어야 찾는다. */
-    private fun actionRow(onDetail: () -> Unit, onMap: () -> Unit): LinearLayout =
+    /** 카드 아래 버튼. 카드 전체를 눌러도 되지만 눈에 보이는 버튼이 있어야 찾는다. */
+    private fun actionRow(onDetail: () -> Unit): LinearLayout =
         UiKit.row(this) {
             addView(
-                UiKit.cardAction(context, "평형별 상세 ›", onDetail),
-                LinearLayout.LayoutParams(0, WRAP, 1f)
-            )
-            addView(
-                UiKit.cardAction(context, "지도 보기 ›", onMap),
-                LinearLayout.LayoutParams(0, WRAP, 1f).apply { leftMargin = dp(7) }
+                UiKit.cardAction(context, "지도 · 평형별 상세 보기 ›", onDetail),
+                LinearLayout.LayoutParams(MATCH, WRAP)
             )
         }
 
     private fun upcomingCard(row: Upcoming): View = UiKit.card(this) {
         isClickable = true
-        setOnClickListener { openApplyDetail(row.name, row.address, row.builder, row.byType, false, row.detailUrl) }
+        setOnClickListener { openApplyDetail(row.name, row.address, row.builder, row.byType, false, row.detailUrl, row.lat, row.lon) }
 
         addView(UiKit.row(context) {
             addView(UiKit.chip(context, row.region))
@@ -378,10 +371,7 @@ class MainActivity : Activity() {
             UiKit.stacked(context, top = 8)
         )
         addView(
-            actionRow(
-                { openApplyDetail(row.name, row.address, row.builder, row.byType, false, row.detailUrl) },
-                { openMap(row.name, row.address) }
-            ),
+            actionRow { openApplyDetail(row.name, row.address, row.builder, row.byType, false, row.detailUrl, row.lat, row.lon) },
             UiKit.stacked(context, top = 10)
         )
     }
@@ -392,13 +382,25 @@ class MainActivity : Activity() {
         builder: String,
         types: List<UnitType>,
         withRate: Boolean,
-        url: String
+        url: String,
+        lat: Double? = null,
+        lon: Double? = null
     ) {
         detailOpen = true
         refreshTabs()
         val page = UiKit.column(this)
         page.addView(backBar("청약홈으로"))
-        page.addView(UiKit.heading(this, name, 19f), UiKit.stacked(this, top = 6))
+
+        // 맨 위에 지도. 좌표를 못 찾은 공고는 안내만 띄운다.
+        if (lat != null && lon != null) {
+            page.addView(UiKit.map(this, lat, lon), UiKit.stacked(this, top = 10))
+        } else {
+            page.addView(UiKit.sunkenBox(this) {
+                addView(UiKit.faint(context, "주소로 위치를 찾지 못했습니다. 아래 지도 앱에서 찾아보세요.", 12.5f))
+            }, UiKit.stacked(this, top = 10))
+        }
+
+        page.addView(UiKit.heading(this, name, 19f), UiKit.stacked(this, top = 14))
         page.addView(UiKit.muted(this, address, 13f), UiKit.stacked(this, top = 6))
         page.addView(UiKit.faint(this, "시공 $builder", 12.5f), UiKit.stacked(this, top = 4))
         page.addView(UiKit.row(this) {

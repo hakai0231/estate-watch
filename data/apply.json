@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-01T16:34:40+09:00",
+  "updatedAt": "2026-09-02T16:08:15+09:00",
   "source": {
     "name": "한국부동산원 청약홈 (공공데이터포털)",
     "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancListView.do",
@@ -52,7 +52,10 @@
           "rate": 15.67
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000372"
+      "detailUrl": "https://cheongyak.today/notice/2026000372",
+      "lat": 37.59296,
+      "lon": 126.93733,
+      "mapMatched": "서울특별시 서대문구 홍은동 355"
     },
     {
       "name": "의왕역 한신더휴",
@@ -108,7 +111,10 @@
           "rate": 4.0
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000377"
+      "detailUrl": "https://cheongyak.today/notice/2026000377",
+      "lat": 37.319477,
+      "lon": 126.957041,
+      "mapMatched": "경기도 의왕시 삼동"
     },
     {
       "name": "포레나힐스테이트 진주",
@@ -180,7 +186,10 @@
           "rate": 13.81
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000383"
+      "detailUrl": "https://cheongyak.today/notice/2026000383",
+      "lat": 35.197899,
+      "lon": 128.053996,
+      "mapMatched": "경상남도 진주시 이현동"
     },
     {
       "name": "상동역 롯데캐슬 시그니처",
@@ -300,7 +309,10 @@
           "rate": 3.0
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000354"
+      "detailUrl": "https://cheongyak.today/notice/2026000354",
+      "lat": 37.505836,
+      "lon": 126.753174,
+      "mapMatched": "경기도 부천시 원미구 상동"
     },
     {
       "name": "제일풍경채 첨단3지구(A6BL)",
@@ -356,7 +368,9 @@
           "rate": null
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000342"
+      "detailUrl": "https://cheongyak.today/notice/2026000342",
+      "lat": null,
+      "lon": null
     },
     {
       "name": "오남역 서희스타힐스 여의재 1단지",
@@ -412,7 +426,10 @@
           "rate": 1.14
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000365"
+      "detailUrl": "https://cheongyak.today/notice/2026000365",
+      "lat": 37.683539,
+      "lon": 127.208074,
+      "mapMatched": "경기도 남양주시 오남읍 양지리 101"
     },
     {
       "name": "두산위브더제니스 부천",
@@ -484,7 +501,10 @@
           "rate": null
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000382"
+      "detailUrl": "https://cheongyak.today/notice/2026000382",
+      "lat": 37.475021,
+      "lon": 126.796064,
+      "mapMatched": "경기도 부천시 소사구 소사본동 88-39"
     },
     {
       "name": "더샵 신길센트럴시티(조합원 취소분)",
@@ -612,7 +632,10 @@
           "rate": 186.17
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000374"
+      "detailUrl": "https://cheongyak.today/notice/2026000374",
+      "lat": 37.506521,
+      "lon": 126.911911,
+      "mapMatched": "서울특별시 영등포구 신길동"
     },
     {
       "name": "용인반도체클러스터 동일하이빌 파크밸리(D1-1블록)",
@@ -684,7 +707,10 @@
           "rate": 1.95
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000371"
+      "detailUrl": "https://cheongyak.today/notice/2026000371",
+      "lat": 37.166513,
+      "lon": 127.313384,
+      "mapMatched": "경기도 용인시 처인구 원삼면"
     },
     {
       "name": "써밋 클라비온",
@@ -764,7 +790,10 @@
           "rate": 57.33
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000364"
+      "detailUrl": "https://cheongyak.today/notice/2026000364",
+      "lat": 37.506521,
+      "lon": 126.911911,
+      "mapMatched": "서울특별시 영등포구 신길동"
     }
   ],
   "upcoming": [
@@ -828,7 +857,9 @@
           "pyeongPrice": "1,831만"
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000404"
+      "detailUrl": "https://cheongyak.today/notice/2026000404",
+      "lat": null,
+      "lon": null
     },
     {
       "name": "시티오씨엘 9단지 오션파크뷰",
@@ -918,7 +949,10 @@
           "pyeongPrice": "2,948만"
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000388"
+      "detailUrl": "https://cheongyak.today/notice/2026000388",
+      "lat": 37.440066,
+      "lon": 126.656453,
+      "mapMatched": "인천광역시 미추홀구 학익동"
     },
     {
       "name": "성남복정2 A1블록 신혼희망타운(공공분양)(본청약)",
@@ -966,7 +1000,10 @@
           "pyeongPrice": "3,155만"
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026820008"
+      "detailUrl": "https://cheongyak.today/notice/2026820008",
+      "lat": 37.44668,
+      "lon": 127.14705,
+      "mapMatched": "경기도 성남시 수정구 신흥동"
     },
     {
       "name": "브라운스톤 월곡 센트럴",
@@ -1014,7 +1051,10 @@
           "pyeongPrice": "3,467만"
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000399"
+      "detailUrl": "https://cheongyak.today/notice/2026000399",
+      "lat": 37.60444,
+      "lon": 127.03764,
+      "mapMatched": "서울특별시 성북구 하월곡동 70-4"
     },
     {
       "name": "의정부우정 A2블록 공공분양주택(본청약)",
@@ -1048,7 +1088,10 @@
           "pyeongPrice": "1,590만"
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000409"
+      "detailUrl": "https://cheongyak.today/notice/2026000409",
+      "lat": 37.763284,
+      "lon": 127.034185,
+      "mapMatched": "경기도 의정부시 녹양동"
     },
     {
       "name": "양주회천지구 A-26블록 공공분양주택",
@@ -1103,7 +1146,10 @@
           "pyeongPrice": "1,385만"
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000416"
+      "detailUrl": "https://cheongyak.today/notice/2026000416",
+      "lat": 37.845487,
+      "lon": 127.065787,
+      "mapMatched": "경기도 양주시 덕정동"
     },
     {
       "name": "인천계양지구 A6블록 공공분양주택(본청약)",
@@ -1214,7 +1260,10 @@
           "pyeongPrice": "2,006만"
         }
       ],
-      "detailUrl": "https://cheongyak.today/notice/2026000414"
+      "detailUrl": "https://cheongyak.today/notice/2026000414",
+      "lat": 37.576305,
+      "lon": 126.772297,
+      "mapMatched": "인천광역시 계양구 상야동"
     }
   ]
 }

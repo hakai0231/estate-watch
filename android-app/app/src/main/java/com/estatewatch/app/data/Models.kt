@@ -102,7 +102,9 @@ data class ApplyResult(
     val verdict: String,
     val tone: String,
     val byType: List<UnitType>,
-    val detailUrl: String
+    val detailUrl: String,
+    val lat: Double?,
+    val lon: Double?
 ) {
     companion object {
         fun parse(o: JSONObject) = ApplyResult(
@@ -122,7 +124,9 @@ data class ApplyResult(
             verdict = o.optString("verdict"),
             tone = o.optString("tone"),
             byType = o.optJSONArray("byType").map { UnitType.parse(it) },
-            detailUrl = o.optString("detailUrl")
+            detailUrl = o.optString("detailUrl"),
+            lat = o.optDoubleOrNull("lat"),
+            lon = o.optDoubleOrNull("lon")
         )
     }
 }
@@ -141,7 +145,9 @@ data class Upcoming(
     val priceRange: String,
     val movein: String,
     val byType: List<UnitType>,
-    val detailUrl: String
+    val detailUrl: String,
+    val lat: Double?,
+    val lon: Double?
 ) {
     companion object {
         fun parse(o: JSONObject) = Upcoming(
@@ -157,7 +163,9 @@ data class Upcoming(
             priceRange = o.optString("priceRange"),
             movein = o.optString("movein"),
             byType = o.optJSONArray("byType").map { UnitType.parse(it) },
-            detailUrl = o.optString("detailUrl")
+            detailUrl = o.optString("detailUrl"),
+            lat = o.optDoubleOrNull("lat"),
+            lon = o.optDoubleOrNull("lon")
         )
     }
 }
