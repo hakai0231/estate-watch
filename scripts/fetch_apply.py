@@ -186,8 +186,9 @@ def main() -> None:
     print(f"  청약예정 {len(upcoming)}건")
 
     # 앱 안에서 지도를 그리려면 좌표가 필요하다. 한 번 찾은 주소는 캐시에서 꺼내 쓴다.
-    located = geocode.attach(results + upcoming)
-    print(f"  좌표 {located}/{len(results) + len(upcoming)}건")
+    located, precise = geocode.attach(results + upcoming)
+    total = len(results) + len(upcoming)
+    print(f"  좌표 {located}/{total}건 (지번 정확 {precise}건)")
 
     payload = {
         "updatedAt": datetime.now(src.KST).isoformat(timespec="seconds"),

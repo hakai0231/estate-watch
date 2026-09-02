@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-02T16:08:15+09:00",
+  "updatedAt": "2026-09-02T16:59:39+09:00",
   "source": {
     "name": "한국부동산원 청약홈 (공공데이터포털)",
     "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancListView.do",
@@ -53,9 +53,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000372",
-      "lat": 37.59296,
-      "lon": 126.93733,
-      "mapMatched": "서울특별시 서대문구 홍은동 355"
+      "lat": 37.583333,
+      "lon": 126.924723,
+      "mapMatched": "서울 서대문구 홍은동 355"
     },
     {
       "name": "의왕역 한신더휴",
@@ -112,9 +112,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000377",
-      "lat": 37.319477,
-      "lon": 126.957041,
-      "mapMatched": "경기도 의왕시 삼동"
+      "lat": 37.320881,
+      "lon": 126.955831,
+      "mapMatched": "경기 의왕시 삼동 244-1"
     },
     {
       "name": "포레나힐스테이트 진주",
@@ -187,9 +187,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000383",
-      "lat": 35.197899,
-      "lon": 128.053996,
-      "mapMatched": "경상남도 진주시 이현동"
+      "lat": 35.192831,
+      "lon": 128.061707,
+      "mapMatched": "경남 진주시 이현동"
     },
     {
       "name": "상동역 롯데캐슬 시그니처",
@@ -310,9 +310,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000354",
-      "lat": 37.505836,
-      "lon": 126.753174,
-      "mapMatched": "경기도 부천시 원미구 상동"
+      "lat": 37.504075,
+      "lon": 126.75495,
+      "mapMatched": "경기 부천시 원미구 상동 540-1"
     },
     {
       "name": "제일풍경채 첨단3지구(A6BL)",
@@ -427,9 +427,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000365",
-      "lat": 37.683539,
-      "lon": 127.208074,
-      "mapMatched": "경기도 남양주시 오남읍 양지리 101"
+      "lat": 37.699978,
+      "lon": 127.203686,
+      "mapMatched": "경기 남양주시 오남읍 양지리 101"
     },
     {
       "name": "두산위브더제니스 부천",
@@ -502,9 +502,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000382",
-      "lat": 37.475021,
-      "lon": 126.796064,
-      "mapMatched": "경기도 부천시 소사구 소사본동 88-39"
+      "lat": 37.482016,
+      "lon": 126.789516,
+      "mapMatched": "경기 부천시 소사구 소사본동 88-39"
     },
     {
       "name": "더샵 신길센트럴시티(조합원 취소분)",
@@ -633,9 +633,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000374",
-      "lat": 37.506521,
-      "lon": 126.911911,
-      "mapMatched": "서울특별시 영등포구 신길동"
+      "lat": 37.49814,
+      "lon": 126.90386,
+      "mapMatched": "서울 영등포구 신길동 413-8"
     },
     {
       "name": "용인반도체클러스터 동일하이빌 파크밸리(D1-1블록)",
@@ -708,9 +708,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000371",
-      "lat": 37.166513,
-      "lon": 127.313384,
-      "mapMatched": "경기도 용인시 처인구 원삼면"
+      "lat": 37.166611,
+      "lon": 127.313205,
+      "mapMatched": "경기 용인시 처인구 원삼면"
     },
     {
       "name": "써밋 클라비온",
@@ -791,9 +791,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000364",
-      "lat": 37.506521,
-      "lon": 126.911911,
-      "mapMatched": "서울특별시 영등포구 신길동"
+      "lat": 37.501274,
+      "lon": 126.91047,
+      "mapMatched": "서울 영등포구 신길동 3590"
     }
   ],
   "upcoming": [
@@ -950,9 +950,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000388",
-      "lat": 37.440066,
-      "lon": 126.656453,
-      "mapMatched": "인천광역시 미추홀구 학익동"
+      "lat": 37.441018,
+      "lon": 126.654381,
+      "mapMatched": "인천 미추홀구 학익동"
     },
     {
       "name": "성남복정2 A1블록 신혼희망타운(공공분양)(본청약)",
@@ -1001,9 +1001,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026820008",
-      "lat": 37.44668,
-      "lon": 127.14705,
-      "mapMatched": "경기도 성남시 수정구 신흥동"
+      "lat": 37.452137,
+      "lon": 127.143821,
+      "mapMatched": "경기 성남시 수정구 신흥동 81-8"
     },
     {
       "name": "브라운스톤 월곡 센트럴",
@@ -1052,9 +1052,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000399",
-      "lat": 37.60444,
-      "lon": 127.03764,
-      "mapMatched": "서울특별시 성북구 하월곡동 70-4"
+      "lat": 37.605899,
+      "lon": 127.036206,
+      "mapMatched": "서울 성북구 하월곡동 70-4"
     },
     {
       "name": "의정부우정 A2블록 공공분양주택(본청약)",
@@ -1089,9 +1089,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000409",
-      "lat": 37.763284,
-      "lon": 127.034185,
-      "mapMatched": "경기도 의정부시 녹양동"
+      "lat": 37.760131,
+      "lon": 127.03232,
+      "mapMatched": "경기 의정부시 녹양동"
     },
     {
       "name": "양주회천지구 A-26블록 공공분양주택",
@@ -1147,9 +1147,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000416",
-      "lat": 37.845487,
-      "lon": 127.065787,
-      "mapMatched": "경기도 양주시 덕정동"
+      "lat": 37.846732,
+      "lon": 127.064716,
+      "mapMatched": "경기 양주시 덕정동"
     },
     {
       "name": "인천계양지구 A6블록 공공분양주택(본청약)",
@@ -1261,9 +1261,9 @@
         }
       ],
       "detailUrl": "https://cheongyak.today/notice/2026000414",
-      "lat": 37.576305,
-      "lon": 126.772297,
-      "mapMatched": "인천광역시 계양구 상야동"
+      "lat": 37.573354,
+      "lon": 126.771847,
+      "mapMatched": "인천 계양구 상야동"
     }
   ]
 }
