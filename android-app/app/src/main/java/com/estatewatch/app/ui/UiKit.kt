@@ -169,8 +169,8 @@ object UiKit {
      * 단지 위치 지도. OpenStreetMap 을 쓴다 — API 키가 필요 없고, 한국 지도도
      * 아파트 단지명·지하철역까지 나올 만큼 충실하다. 손가락으로 확대·이동된다.
      */
-    fun map(context: Context, lat: Double, lon: Double, heightDp: Int = 210): View {
-        val span = 0.006                      // 대략 반경 500m
+    fun map(context: Context, lat: Double, lon: Double, heightDp: Int = 260): View {
+        val span = 0.005                      // 대략 반경 400m
         val url = "https://www.openstreetmap.org/export/embed.html" +
             "?bbox=" + (lon - span) + "%2C" + (lat - span / 2) +
             "%2C" + (lon + span) + "%2C" + (lat + span / 2) +
