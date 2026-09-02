@@ -4,10 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Typeface
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.Gravity
 import android.view.View
+import android.view.WindowInsets
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -59,6 +61,7 @@ class MainActivity : Activity() {
         stage = FrameLayout(this)
         root.addView(stage, LinearLayout.LayoutParams(MATCH, 0, 1f))
         setContentView(root)
+        applySystemBarInsets(root)
 
         render()
         if (brief.isEmpty || staleForToday()) refresh(silent = true)
@@ -74,6 +77,32 @@ class MainActivity : Activity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    /**
+     * 앱이 화면 끝까지 그려지므로(에지 투 에지) 상태바·내비게이션 바 높이만큼
+     * 직접 여백을 준다. 안 그러면 제호가 시계와 겹친다.
+     */
+    private fun applySystemBarInsets(target: View) {
+        target.setOnApplyWindowInsetsListener { view, insets ->
+            val top: Int
+            val bottom: Int
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                val bars = insets.getInsets(
+                    WindowInsets.Type.systemBars() or WindowInsets.Type.displayCutout()
+                )
+                top = bars.top
+                bottom = bars.bottom
+            } else {
+                @Suppress("DEPRECATION")
+                top = insets.systemWindowInsetTop
+                @Suppress("DEPRECATION")
+                bottom = insets.systemWindowInsetBottom
+            }
+            view.setPadding(0, top, 0, bottom)
+            insets
+        }
+        target.requestApplyInsets()
     }
 
     // ── 상단 ──────────────────────────────────────────────────────────────
@@ -113,9 +142,12 @@ class MainActivity : Activity() {
     }
 
     private fun refreshTabs() {
+        // 상세 화면에서는 탭이 의미가 없다. 뒤로 가는 버튼만 남긴다.
+        tabRow.visibility = if (detailOpen) View.GONE else View.VISIBLE
+        if (detailOpen) return
         tabRow.removeAllViews()
         Tab.entries.forEachIndexed { index, entry ->
-            val button = UiKit.tabButton(this, entry.label, entry == tab && !detailOpen) {
+            val button = UiKit.tabButton(this, entry.label, entry == tab) {
                 tab = entry
                 detailOpen = false
                 render()
@@ -278,7 +310,8 @@ class MainActivity : Activity() {
                     Triple("평균 경쟁률", rateText(row.avgRate), rateColor(row.avgRate)),
                     Triple("최고 경쟁률", rateText(row.maxRate), null)
                 ),
-                highlight = 2
+                highlight = 2,
+                weights = listOf(.85f, 1.2f, 1.1f, .95f)
             ),
             UiKit.stacked(context, top = 9)
         )
@@ -314,7 +347,8 @@ class MainActivity : Activity() {
                     Triple("세대수", row.totalUnits.grouped(), null),
                     Triple("접수", row.receipt, null)
                 ),
-                highlight = 2
+                highlight = 2,
+                weights = listOf(.8f, 1.15f, .8f, 1.25f)
             ),
             UiKit.stacked(context, top = 9)
         )

@@ -41,8 +41,7 @@ object UiKit {
 
     fun scroller(context: Context, content: View): ScrollView = ScrollView(context).apply {
         isFillViewport = true
-        clipToPadding = false
-        setPadding(context.dp(14), 0, context.dp(14), context.dp(36))
+        setPadding(context.dp(14), 0, context.dp(14), context.dp(28))
         addView(content, ViewGroup.LayoutParams(MATCH, WRAP))
     }
 
@@ -131,7 +130,8 @@ object UiKit {
     fun dataStrip(
         context: Context,
         cells: List<Triple<String, String, Int?>>,
-        highlight: Int = -1
+        highlight: Int = -1,
+        weights: List<Float> = emptyList()
     ): LinearLayout = row(context) {
         background = rounded(
             context.color(R.color.line), context.dp(9),
@@ -154,7 +154,7 @@ object UiKit {
                     setTextColor(context.color(tintColor ?: R.color.ink))
                 })
             }
-            addView(cell, LinearLayout.LayoutParams(0, WRAP, 1f).apply {
+            addView(cell, LinearLayout.LayoutParams(0, WRAP, weights.getOrElse(index) { 1f }).apply {
                 if (index > 0) leftMargin = context.dp(1)
                 topMargin = context.dp(1)
                 bottomMargin = context.dp(1)
